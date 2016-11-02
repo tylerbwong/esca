@@ -2,4 +2,4 @@ language: objective-c
 osx_image: xcode8.1
 xcode_project: esca.xcodeproj
 xcode_scheme: esca
-xcode_sdk: iphonesimulator8.4
+xcode_sdk: iphonesimulator9.3
