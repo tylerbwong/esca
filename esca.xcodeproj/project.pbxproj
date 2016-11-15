@@ -12,10 +12,7 @@
 		156FE8621DC5558200E75CF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 156FE8601DC5558200E75CF8 /* Main.storyboard */; };
 		156FE8641DC5558200E75CF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 156FE8631DC5558200E75CF8 /* Assets.xcassets */; };
 		156FE8671DC5558200E75CF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 156FE8651DC5558200E75CF8 /* LaunchScreen.storyboard */; };
-		15E9284A1DDACFBE0088585F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E928491DDACFBE0088585F /* Bolts.framework */; };
-		15E9284C1DDACFD00088585F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E9284B1DDACFD00088585F /* FBSDKCoreKit.framework */; };
-		15E9284E1DDACFDC0088585F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E9284D1DDACFDC0088585F /* FBSDKLoginKit.framework */; };
-		15E928501DDACFE70088585F /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E9284F1DDACFE70088585F /* FBSDKShareKit.framework */; };
+		15E928521DDAD5570088585F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15E928511DDAD5570088585F /* GoogleService-Info.plist */; };
 		5FF7BEA7FCD04109F155DC48 /* Pods_esca.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E17E434369C0A93488D603 /* Pods_esca.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,10 +24,8 @@
 		156FE8631DC5558200E75CF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		156FE8661DC5558200E75CF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		156FE8681DC5558200E75CF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		15E928491DDACFBE0088585F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		15E9284B1DDACFD00088585F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		15E9284D1DDACFDC0088585F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		15E9284F1DDACFE70088585F /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		15E928511DDAD5570088585F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		15E928541DDAE9070088585F /* esca.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = esca.entitlements; sourceTree = "<group>"; };
 		1C634A66D4F561961B8020FD /* Pods-esca.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esca.debug.xcconfig"; path = "Pods/Target Support Files/Pods-esca/Pods-esca.debug.xcconfig"; sourceTree = "<group>"; };
 		9E137C7EB05C51EEC840B52F /* Pods-esca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esca.release.xcconfig"; path = "Pods/Target Support Files/Pods-esca/Pods-esca.release.xcconfig"; sourceTree = "<group>"; };
 		C8E17E434369C0A93488D603 /* Pods_esca.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_esca.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,10 +37,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FF7BEA7FCD04109F155DC48 /* Pods_esca.framework in Frameworks */,
-				15E9284C1DDACFD00088585F /* FBSDKCoreKit.framework in Frameworks */,
-				15E928501DDACFE70088585F /* FBSDKShareKit.framework in Frameworks */,
-				15E9284E1DDACFDC0088585F /* FBSDKLoginKit.framework in Frameworks */,
-				15E9284A1DDACFBE0088585F /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +73,8 @@
 		156FE85B1DC5558100E75CF8 /* esca */ = {
 			isa = PBXGroup;
 			children = (
+				15E928541DDAE9070088585F /* esca.entitlements */,
+				15E928511DDAD5570088585F /* GoogleService-Info.plist */,
 				156FE85C1DC5558200E75CF8 /* AppDelegate.swift */,
 				156FE85E1DC5558200E75CF8 /* ViewController.swift */,
 				156FE8601DC5558200E75CF8 /* Main.storyboard */,
@@ -95,10 +88,6 @@
 		764393559E68288D1354D84D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				15E9284F1DDACFE70088585F /* FBSDKShareKit.framework */,
-				15E9284D1DDACFDC0088585F /* FBSDKLoginKit.framework */,
-				15E9284B1DDACFD00088585F /* FBSDKCoreKit.framework */,
-				15E928491DDACFBE0088585F /* Bolts.framework */,
 				C8E17E434369C0A93488D603 /* Pods_esca.framework */,
 			);
 			name = Frameworks;
@@ -138,7 +127,13 @@
 				TargetAttributes = {
 					156FE8581DC5558100E75CF8 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = RKXT8ZV897;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -166,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				156FE8671DC5558200E75CF8 /* LaunchScreen.storyboard in Resources */,
+				15E928521DDAD5570088585F /* GoogleService-Info.plist in Resources */,
 				156FE8641DC5558200E75CF8 /* Assets.xcassets in Resources */,
 				156FE8621DC5558200E75CF8 /* Main.storyboard in Resources */,
 			);
@@ -351,7 +347,8 @@
 			baseConfigurationReference = 1C634A66D4F561961B8020FD /* Pods-esca.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_ENTITLEMENTS = esca/esca.entitlements;
+				DEVELOPMENT_TEAM = RKXT8ZV897;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -369,7 +366,8 @@
 			baseConfigurationReference = 9E137C7EB05C51EEC840B52F /* Pods-esca.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_ENTITLEMENTS = esca/esca.entitlements;
+				DEVELOPMENT_TEAM = RKXT8ZV897;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

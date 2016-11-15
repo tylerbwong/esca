@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Delegate-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="esca" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,49 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="esca." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Uo-Ih-S2J">
+                                <rect key="frame" x="106" y="202" width="163" height="86"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="72"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzY-MN-hxP">
+                                <rect key="frame" x="144" y="449" width="86" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="logoutAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LdQ-bj-6ye"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WJ9-U6-pY8" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="68" y="337" width="239" height="53"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="BEb-4z-SOM"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="9Uo-Ih-S2J" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="90" id="1Jg-eF-QoW"/>
+                            <constraint firstItem="fzY-MN-hxP" firstAttribute="top" secondItem="WJ9-U6-pY8" secondAttribute="bottom" constant="59" id="1aL-lJ-cS3"/>
+                            <constraint firstItem="9Uo-Ih-S2J" firstAttribute="centerX" secondItem="fzY-MN-hxP" secondAttribute="centerX" id="7XT-Ge-lT5"/>
+                            <constraint firstItem="fzY-MN-hxP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cNq-td-XXP"/>
+                            <constraint firstItem="9Uo-Ih-S2J" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="182" id="gaQ-IP-MZz"/>
+                            <constraint firstItem="WJ9-U6-pY8" firstAttribute="centerX" secondItem="fzY-MN-hxP" secondAttribute="centerX" id="muR-LQ-3WZ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fzY-MN-hxP" secondAttribute="bottom" constant="177" id="oVV-Vg-1Gc"/>
+                            <constraint firstItem="WJ9-U6-pY8" firstAttribute="top" secondItem="9Uo-Ih-S2J" secondAttribute="bottom" constant="49" id="q03-d2-eSt"/>
+                            <constraint firstItem="WJ9-U6-pY8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="52" id="qQ5-U5-a1m"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="WJ9-U6-pY8" id="md9-cQ-pB1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="107.49625187406298"/>
         </scene>
     </scenes>
 </document>
