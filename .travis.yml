@@ -3,4 +3,3 @@ osx_image: xcode8.1
 xcode_project: esca.xcodeproj
 xcode_scheme: esca
 xcode_sdk: iphonesimulator9.3
-script: xcodebuild -workspace esca.xcworkspace -scheme esca -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
