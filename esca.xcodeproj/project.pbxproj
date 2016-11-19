@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		154ED8CD1DDFC5C800B9A71B /* FirebaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ED8CC1DDFC5C800B9A71B /* FirebaseApi.swift */; };
+		154ED8CF1DDFC9C600B9A71B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ED8CE1DDFC9C600B9A71B /* User.swift */; };
+		154ED8D11DDFCEB300B9A71B /* Deal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ED8D01DDFCEB300B9A71B /* Deal.swift */; };
+		154ED8D31DDFCFBB00B9A71B /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ED8D21DDFCFBB00B9A71B /* Feedback.swift */; };
+		154ED8D51DDFD03700B9A71B /* ActivityEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ED8D41DDFD03700B9A71B /* ActivityEntry.swift */; };
 		156FE85D1DC5558200E75CF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156FE85C1DC5558200E75CF8 /* AppDelegate.swift */; };
 		156FE85F1DC5558200E75CF8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156FE85E1DC5558200E75CF8 /* ViewController.swift */; };
 		156FE8621DC5558200E75CF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 156FE8601DC5558200E75CF8 /* Main.storyboard */; };
@@ -17,6 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		154ED8CC1DDFC5C800B9A71B /* FirebaseApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseApi.swift; sourceTree = "<group>"; };
+		154ED8CE1DDFC9C600B9A71B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		154ED8D01DDFCEB300B9A71B /* Deal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deal.swift; sourceTree = "<group>"; };
+		154ED8D21DDFCFBB00B9A71B /* Feedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
+		154ED8D41DDFD03700B9A71B /* ActivityEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityEntry.swift; sourceTree = "<group>"; };
 		156FE8591DC5558100E75CF8 /* esca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = esca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		156FE85C1DC5558200E75CF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		156FE85E1DC5558200E75CF8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +91,11 @@
 				156FE8631DC5558200E75CF8 /* Assets.xcassets */,
 				156FE8651DC5558200E75CF8 /* LaunchScreen.storyboard */,
 				156FE8681DC5558200E75CF8 /* Info.plist */,
+				154ED8CC1DDFC5C800B9A71B /* FirebaseApi.swift */,
+				154ED8CE1DDFC9C600B9A71B /* User.swift */,
+				154ED8D01DDFCEB300B9A71B /* Deal.swift */,
+				154ED8D21DDFCFBB00B9A71B /* Feedback.swift */,
+				154ED8D41DDFD03700B9A71B /* ActivityEntry.swift */,
 			);
 			path = esca;
 			sourceTree = "<group>";
@@ -222,6 +237,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				154ED8D51DDFD03700B9A71B /* ActivityEntry.swift in Sources */,
+				154ED8CF1DDFC9C600B9A71B /* User.swift in Sources */,
+				154ED8CD1DDFC5C800B9A71B /* FirebaseApi.swift in Sources */,
+				154ED8D31DDFCFBB00B9A71B /* Feedback.swift in Sources */,
+				154ED8D11DDFCEB300B9A71B /* Deal.swift in Sources */,
 				156FE85F1DC5558200E75CF8 /* ViewController.swift in Sources */,
 				156FE85D1DC5558200E75CF8 /* AppDelegate.swift in Sources */,
 			);
