@@ -108,6 +108,8 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - SideMenu (2.0.6)
+  - SwiftyJSON (3.1.1)
   - TwitterCore (2.6.0):
     - Fabric
   - TwitterKit (2.6.0):
@@ -123,6 +125,8 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - FirebaseUI (~> 1.0)
+  - SideMenu
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
@@ -146,9 +150,11 @@ SPEC CHECKSUMS:
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SideMenu: 90be7a14e9f54eb528f96f2033aa54f2992c5667
+  SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
   TwitterCore: 150e8d2538b867bdde9ef9b61c6b755c2523c25e
   TwitterKit: 3d72f0b25f2cc281f996e976928d2defe28702cb
 
-PODFILE CHECKSUM: 80eead33a7ed32cb9a753905b919a4e5cb7ebf28
+PODFILE CHECKSUM: 7249e080f0fd7dc4096c4551a2758c26d1b4a5d6
 
 COCOAPODS: 1.1.1

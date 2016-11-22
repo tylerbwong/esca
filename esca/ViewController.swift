@@ -30,6 +30,14 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
       // Dispose of any resources that can be recreated.
    }
    
+   // MARK: - Segues
+   
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      if segue.identifier == "showMain" {
+         print("yay")
+      }
+   }
+   
    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error?) {
       if let error = error {
          print(error.localizedDescription)
@@ -46,6 +54,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             self.present(alert, animated: true, completion: nil)
          }
       }
+      
+      let mainViewController = storyboard?.instantiateViewController(withIdentifier: "showMain") as! MainViewController
+      self.present(mainViewController, animated: true, completion: nil)
    }
    
    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {

@@ -13,5 +13,7 @@ target 'esca' do
   pod 'FirebaseUI', '~> 1.0'
   pod 'Bolts'
   pod 'FBSDKCoreKit'
-  pod 'FBSDKLoginKit' 
+  pod 'FBSDKLoginKit'
+  pod 'SideMenu'
+  pod 'SwiftyJSON'
 end
