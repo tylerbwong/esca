@@ -10,13 +10,9 @@ import UIKit
 import Firebase
 import FBSDKLoginKit
 
-class ViewController: UIViewController, FBSDKLoginButtonDelegate {
+class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
    @IBOutlet weak var loginButton: FBSDKLoginButton!
-   
-   @IBAction func logoutAction(_ sender: Any) {
-      try! FIRAuth.auth()!.signOut()
-   }
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -33,7 +29,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
    // MARK: - Segues
    
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      if segue.identifier == "showMain" {
+      if segue.identifier == "Main" {
          print("yay")
       }
    }
@@ -44,18 +40,21 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
          return
       }
       
-      let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+      var credential:FIRAuthCredential
       
-      FIRAuth.auth()?.signIn(with: credential) { (user, error) in
-         if let user = user {
-            let welcomeMessage: String = "Welcome, \(user.displayName!)!"
-            let alert = UIAlertController(title: "Login Success", message: welcomeMessage, preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+      if FBSDKAccessToken.current() != nil {
+         credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+         
+         FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+            if user != nil {
+               self.goToMain()
+            }
          }
       }
-      
-      let mainViewController = storyboard?.instantiateViewController(withIdentifier: "showMain") as! MainViewController
+   }
+   
+   func goToMain() {
+      let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "Main") as! DealViewController
       self.present(mainViewController, animated: true, completion: nil)
    }
    

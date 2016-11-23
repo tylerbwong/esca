@@ -13,12 +13,14 @@
 		154ED8D31DDFCFBB00B9A71B /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ED8D21DDFCFBB00B9A71B /* Feedback.swift */; };
 		154ED8D51DDFD03700B9A71B /* ActivityEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ED8D41DDFD03700B9A71B /* ActivityEntry.swift */; };
 		156FE85D1DC5558200E75CF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156FE85C1DC5558200E75CF8 /* AppDelegate.swift */; };
-		156FE85F1DC5558200E75CF8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156FE85E1DC5558200E75CF8 /* ViewController.swift */; };
+		156FE85F1DC5558200E75CF8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156FE85E1DC5558200E75CF8 /* LoginViewController.swift */; };
 		156FE8621DC5558200E75CF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 156FE8601DC5558200E75CF8 /* Main.storyboard */; };
 		156FE8641DC5558200E75CF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 156FE8631DC5558200E75CF8 /* Assets.xcassets */; };
 		156FE8671DC5558200E75CF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 156FE8651DC5558200E75CF8 /* LaunchScreen.storyboard */; };
+		15C6153D1DE4FAB200CFF3F0 /* DealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C6153C1DE4FAB200CFF3F0 /* DealCell.swift */; };
 		15E928521DDAD5570088585F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15E928511DDAD5570088585F /* GoogleService-Info.plist */; };
-		15FA2AE71DE445EF00FF5590 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA2AE61DE445EF00FF5590 /* MainViewController.swift */; };
+		15ED2AA71DE51B4900A7A018 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ED2AA61DE51B4900A7A018 /* SideMenuViewController.swift */; };
+		15FA2AE71DE445EF00FF5590 /* DealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA2AE61DE445EF00FF5590 /* DealViewController.swift */; };
 		5FF7BEA7FCD04109F155DC48 /* Pods_esca.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E17E434369C0A93488D603 /* Pods_esca.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,14 +32,16 @@
 		154ED8D41DDFD03700B9A71B /* ActivityEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityEntry.swift; sourceTree = "<group>"; };
 		156FE8591DC5558100E75CF8 /* esca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = esca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		156FE85C1DC5558200E75CF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		156FE85E1DC5558200E75CF8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		156FE85E1DC5558200E75CF8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		156FE8611DC5558200E75CF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		156FE8631DC5558200E75CF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		156FE8661DC5558200E75CF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		156FE8681DC5558200E75CF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15C6153C1DE4FAB200CFF3F0 /* DealCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealCell.swift; sourceTree = "<group>"; };
 		15E928511DDAD5570088585F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		15E928541DDAE9070088585F /* esca.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = esca.entitlements; sourceTree = "<group>"; };
-		15FA2AE61DE445EF00FF5590 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		15ED2AA61DE51B4900A7A018 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		15FA2AE61DE445EF00FF5590 /* DealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealViewController.swift; sourceTree = "<group>"; };
 		1C634A66D4F561961B8020FD /* Pods-esca.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esca.debug.xcconfig"; path = "Pods/Target Support Files/Pods-esca/Pods-esca.debug.xcconfig"; sourceTree = "<group>"; };
 		9E137C7EB05C51EEC840B52F /* Pods-esca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esca.release.xcconfig"; path = "Pods/Target Support Files/Pods-esca/Pods-esca.release.xcconfig"; sourceTree = "<group>"; };
 		C8E17E434369C0A93488D603 /* Pods_esca.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_esca.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,7 +92,7 @@
 				15E928541DDAE9070088585F /* esca.entitlements */,
 				15E928511DDAD5570088585F /* GoogleService-Info.plist */,
 				156FE85C1DC5558200E75CF8 /* AppDelegate.swift */,
-				156FE85E1DC5558200E75CF8 /* ViewController.swift */,
+				156FE85E1DC5558200E75CF8 /* LoginViewController.swift */,
 				156FE8601DC5558200E75CF8 /* Main.storyboard */,
 				156FE8631DC5558200E75CF8 /* Assets.xcassets */,
 				156FE8651DC5558200E75CF8 /* LaunchScreen.storyboard */,
@@ -98,7 +102,9 @@
 				154ED8D01DDFCEB300B9A71B /* Deal.swift */,
 				154ED8D21DDFCFBB00B9A71B /* Feedback.swift */,
 				154ED8D41DDFD03700B9A71B /* ActivityEntry.swift */,
-				15FA2AE61DE445EF00FF5590 /* MainViewController.swift */,
+				15FA2AE61DE445EF00FF5590 /* DealViewController.swift */,
+				15C6153C1DE4FAB200CFF3F0 /* DealCell.swift */,
+				15ED2AA61DE51B4900A7A018 /* SideMenuViewController.swift */,
 			);
 			path = esca;
 			sourceTree = "<group>";
@@ -245,9 +251,11 @@
 				154ED8CD1DDFC5C800B9A71B /* FirebaseApi.swift in Sources */,
 				154ED8D31DDFCFBB00B9A71B /* Feedback.swift in Sources */,
 				154ED8D11DDFCEB300B9A71B /* Deal.swift in Sources */,
-				156FE85F1DC5558200E75CF8 /* ViewController.swift in Sources */,
+				156FE85F1DC5558200E75CF8 /* LoginViewController.swift in Sources */,
+				15C6153D1DE4FAB200CFF3F0 /* DealCell.swift in Sources */,
 				156FE85D1DC5558200E75CF8 /* AppDelegate.swift in Sources */,
-				15FA2AE71DE445EF00FF5590 /* MainViewController.swift in Sources */,
+				15ED2AA71DE51B4900A7A018 /* SideMenuViewController.swift in Sources */,
+				15FA2AE71DE445EF00FF5590 /* DealViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +378,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1C634A66D4F561961B8020FD /* Pods-esca.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = esca/esca.entitlements;
 				DEVELOPMENT_TEAM = RKXT8ZV897;
@@ -389,6 +398,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9E137C7EB05C51EEC840B52F /* Pods-esca.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = esca/esca.entitlements;
 				DEVELOPMENT_TEAM = RKXT8ZV897;

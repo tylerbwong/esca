@@ -11,7 +11,7 @@ import Foundation
 class Deal {
    var id:Int!
    var name:String!
-   var additionalInfo:String!
+   var description:String!
    var startDate:Date?
    var endDate:Date?
    var photoUrl:String?
@@ -19,19 +19,24 @@ class Deal {
    var feedback:[Feedback]?
    var accepted:Int?
    var rejected:Int?
+   var percentage:String {
+      get {
+         return String(format: "%.0f", (Float(accepted!) / Float(rejected! + accepted!)) * 100) + "%";
+      }
+   }
    var userId:Int!
-   var userName:String!
+   var username:String!
    
-   init(id:Int, name:String, additionalInfo:String, startDate:Date, endDate:Date,
-        photoUrl:String, location:String, userId:Int, userName:String) {
+   init(_ id:Int, _ name:String, _ description:String, _ startDate:Date, _ endDate:Date,
+        _ photoUrl:String, _ location:String, _ userId:Int, _ username:String) {
       self.id = id
       self.name = name
-      self.additionalInfo = additionalInfo
+      self.description = description
       self.startDate = startDate
       self.endDate = endDate
       self.photoUrl = photoUrl
       self.location = location
       self.userId = userId
-      self.userName = userName
+      self.username = username
    }
 }
