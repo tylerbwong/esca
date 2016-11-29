@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
       
       if FBSDKAccessToken.current() != nil {
-         initialViewController = storyboard.instantiateViewController(withIdentifier: "Main")
+         initialViewController = storyboard.instantiateViewController(withIdentifier: "NavController")
       }
       else {
          initialViewController = storyboard.instantiateViewController(withIdentifier: "Login")

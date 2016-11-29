@@ -29,7 +29,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
    // MARK: - Segues
    
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      if segue.identifier == "Main" {
+      if segue.identifier == "NavController" {
          print("yay")
       }
    }
@@ -54,7 +54,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
    }
    
    func goToMain() {
-      let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "Main") as! DealViewController
+      let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "NavController") as! UINavigationController
       self.present(mainViewController, animated: true, completion: nil)
    }
    
