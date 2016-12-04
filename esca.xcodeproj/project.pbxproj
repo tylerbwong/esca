@@ -22,6 +22,7 @@
 		15ED2AA71DE51B4900A7A018 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ED2AA61DE51B4900A7A018 /* SideMenuViewController.swift */; };
 		15FA2AE71DE445EF00FF5590 /* DealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA2AE61DE445EF00FF5590 /* DealViewController.swift */; };
 		5FF7BEA7FCD04109F155DC48 /* Pods_esca.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E17E434369C0A93488D603 /* Pods_esca.framework */; };
+		E3A702351DF4003800A26C9D /* AddDealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A702341DF4003800A26C9D /* AddDealTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		1C634A66D4F561961B8020FD /* Pods-esca.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esca.debug.xcconfig"; path = "Pods/Target Support Files/Pods-esca/Pods-esca.debug.xcconfig"; sourceTree = "<group>"; };
 		9E137C7EB05C51EEC840B52F /* Pods-esca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esca.release.xcconfig"; path = "Pods/Target Support Files/Pods-esca/Pods-esca.release.xcconfig"; sourceTree = "<group>"; };
 		C8E17E434369C0A93488D603 /* Pods_esca.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_esca.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3A702341DF4003800A26C9D /* AddDealTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDealTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				15FA2AE61DE445EF00FF5590 /* DealViewController.swift */,
 				15C6153C1DE4FAB200CFF3F0 /* DealCell.swift */,
 				15ED2AA61DE51B4900A7A018 /* SideMenuViewController.swift */,
+				E3A702341DF4003800A26C9D /* AddDealTableViewController.swift */,
 			);
 			path = esca;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				154ED8D51DDFD03700B9A71B /* ActivityEntry.swift in Sources */,
+				E3A702351DF4003800A26C9D /* AddDealTableViewController.swift in Sources */,
 				154ED8CF1DDFC9C600B9A71B /* User.swift in Sources */,
 				154ED8CD1DDFC5C800B9A71B /* FirebaseApi.swift in Sources */,
 				154ED8D31DDFCFBB00B9A71B /* Feedback.swift in Sources */,
