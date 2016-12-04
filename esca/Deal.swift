@@ -12,8 +12,8 @@ class Deal {
    var id:Int!
    var name:String!
    var description:String!
-   var startDate:Date?
-   var endDate:Date?
+   var startDate:String?
+   var endDate:String?
    var photoUrl:String?
    var location:String?
    var feedback:[Feedback]?
@@ -27,7 +27,7 @@ class Deal {
    var userId:Int!
    var username:String!
    
-   init(_ id:Int, _ name:String, _ description:String, _ startDate:Date, _ endDate:Date,
+   init(_ id:Int, _ name:String, _ description:String, _ startDate:String, _ endDate:String,
         _ photoUrl:String, _ location:String, _ userId:Int, _ username:String) {
       self.id = id
       self.name = name

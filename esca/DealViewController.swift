@@ -7,31 +7,29 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class DealViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
    
    @IBOutlet weak var dealTableView: UITableView!
    
+   var dealsRef:FIRDatabaseReference = FIRDatabase.database().reference().child("deals")
    var deals:[Deal] = []
 
    override func viewDidLoad() {
       super.viewDidLoad()
-
-      // Do any additional setup after loading the view.
-      let tempDeal1:Deal = Deal(0, "Buffalo Wild Wings", "35 cent wings on Tuesday!", Date(), Date(),
-                           "http://s.thestreet.com/files/tsc/v2008/photos/contrib/uploads/buffalo-wild-wings-outside-3.jpg",
-                           "Madonna Road", 0, "Brandon Vo")
-      tempDeal1.accepted = 85
-      tempDeal1.rejected = 15
       
-      let tempDeal2:Deal = Deal(1, "Sylvester's Burgers", "Free burgers with coupon!", Date(), Date(),
-                                "https://c1.staticflickr.com/7/6155/6188142428_86c62860d9_b.jpg",
-                                "Los Osos", 0, "Brittany Berlanga")
-      tempDeal2.accepted = 10
-      tempDeal2.rejected = 0
-      
-      deals.append(tempDeal1)
-      deals.append(tempDeal2)
+      dealsRef.observe(.childAdded, with: {(snapshot) in
+         let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+         var tempDeal:Deal
+         
+         tempDeal = Deal(postDict["id"] as! Int, postDict["name"] as! String, postDict["description"] as! String, postDict["startDate"] as! String, postDict["endDate"] as! String, postDict["photoUrl"] as! String, "", 0, postDict["username"] as! String)
+         tempDeal.accepted = postDict["accepted"] as? Int
+         tempDeal.rejected = postDict["rejected"] as? Int
+         self.deals.append(tempDeal)
+         
+         self.dealTableView.reloadData()
+      })
    }
 
    override func didReceiveMemoryWarning() {
@@ -67,7 +65,7 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
       cell?.dealImage.downloadedFrom(link: curDeal.photoUrl!)
       cell?.dealTitleLabel.text = curDeal.name!
       cell?.dealAuthorLabel.text = "by \(curDeal.username!)"
-      cell?.dealDateLabel.text = "11/15/16"
+      cell?.dealDateLabel.text = curDeal.startDate!
       cell?.dealDescriptionLabel.text = curDeal.description!
       cell?.dealPercentLabel.text = curDeal.percentage;
       

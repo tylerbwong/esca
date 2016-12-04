@@ -12,14 +12,14 @@ class Feedback {
    var approved:Bool!
    var description:String?
    var userId:Int!
-   var userName:String!
+   var username:String!
    var timestamp:Date!
    
-   init(approved:Bool, description:String, userId:Int, userName:String, timestamp:Date) {
+   init(approved:Bool, description:String, userId:Int, username:String, timestamp:Date) {
       self.approved = approved
       self.description = description
       self.userId = userId
-      self.userName = userName
+      self.username = username
       self.timestamp = timestamp
    }
 }
