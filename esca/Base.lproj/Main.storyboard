@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -93,7 +93,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppPhotoImage" translatesAutoresizingMaskIntoConstraints="NO" id="31B-BB-ehF">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="213.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="214"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                     </accessibility>
@@ -407,6 +407,9 @@
                                                 <constraint firstItem="eQl-5B-aYp" firstAttribute="leading" secondItem="DaF-Tx-8Jw" secondAttribute="leadingMargin" constant="47" id="wsa-zm-x8s"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="dAt-aH-zao" kind="presentation" id="D5F-AB-HSK"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="leaderboardsCell" id="ObU-7u-FIB">
                                         <rect key="frame" x="0.0" y="44" width="384" height="44"/>
@@ -455,6 +458,9 @@
                                                 <constraint firstItem="KzR-dP-BM5" firstAttribute="top" secondItem="rKO-Ei-qZC" secondAttribute="topMargin" constant="-3" id="wtw-08-Res"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="xvi-o9-Q5o" kind="show" id="mdN-lJ-ddy"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="activityCell" id="Li6-qH-CnU">
                                         <rect key="frame" x="0.0" y="132" width="384" height="44"/>
@@ -547,6 +553,48 @@
             </objects>
             <point key="canvasLocation" x="314" y="27"/>
         </scene>
+        <!--Map-->
+        <scene sceneID="zho-Rd-oXS">
+            <objects>
+                <viewController title="Map" id="5EA-Ri-izg" customClass="MapViewController" customModule="esca" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e4I-KT-vcf"/>
+                        <viewControllerLayoutGuide type="bottom" id="m5i-FT-kqH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qbT-48-F39">
+                        <rect key="frame" x="0.0" y="0.0" width="384" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ksc-vM-BhM">
+                                <rect key="frame" x="0.0" y="72" width="384" height="595"/>
+                                <connections>
+                                    <outlet property="delegate" destination="5EA-Ri-izg" id="gzr-O5-cyO"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ksc-vM-BhM" firstAttribute="leading" secondItem="qbT-48-F39" secondAttribute="leading" id="7yJ-jw-dgQ"/>
+                            <constraint firstAttribute="trailing" secondItem="Ksc-vM-BhM" secondAttribute="trailing" id="FWV-rx-Yuw"/>
+                            <constraint firstItem="Ksc-vM-BhM" firstAttribute="top" secondItem="e4I-KT-vcf" secondAttribute="bottom" constant="8" symbolic="YES" id="xcc-ji-DAZ"/>
+                            <constraint firstItem="Ksc-vM-BhM" firstAttribute="bottom" secondItem="m5i-FT-kqH" secondAttribute="top" id="xeP-SL-3uY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Map" id="T3x-N5-peV">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="BKq-Wo-Dlc">
+                            <connections>
+                                <segue destination="F8y-EX-AiZ" kind="presentation" id="BPv-XB-BXI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="map" destination="Ksc-vM-BhM" id="ZgN-SM-1JZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5hJ-uv-eMy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2207.1999999999998" y="-565.36731634182911"/>
+        </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="nI4-gB-UZa">
             <objects>
@@ -571,8 +619,29 @@
             </objects>
             <point key="canvasLocation" x="-586" y="27"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8fs-JU-23I">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xvi-o9-Q5o" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rwQ-VY-11C">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5EA-Ri-izg" kind="relationship" relationship="rootViewController" id="5MC-HT-hHr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="64w-cA-JqG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1268" y="-565.36731634182911"/>
+        </scene>
     </scenes>
     <resources>
         <image name="AppPhotoImage" width="102" height="128"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="BPv-XB-BXI"/>
+    </inferredMetricsTieBreakers>
 </document>
