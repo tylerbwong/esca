@@ -10,17 +10,34 @@ import UIKit
 import Firebase
 import FBSDKCoreKit
 import FBSDKLoginKit
+import CoreLocation
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
    var window: UIWindow?
+    
+   let locationManager = CLLocationManager()
 
 
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
       self.window = UIWindow(frame: UIScreen.main.bounds)
       let storyboard = UIStoryboard(name: "Main", bundle: nil)
       let initialViewController:UIViewController;
+    
+      locationManager.delegate = self
+      locationManager.requestAlwaysAuthorization()
+    
+      let center = UNUserNotificationCenter.current()
+    
+      center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+         if granted {
+            print("Yay!")
+         } else {
+            print("wah")
+         }
+      }
       
       FIRApp.configure()
       FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -34,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
       self.window?.rootViewController = initialViewController
       self.window?.makeKeyAndVisible()
-      
+    
       return true
    }
    
@@ -74,7 +91,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    func applicationWillTerminate(_ application: UIApplication) {
       // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
    }
-
-
+}
+// MARK: - CLLocationManagerDelegate
+extension AppDelegate: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        if region is CLCircularRegion {
+            handleEvent(forRegion: region)
+        }
+    }
+    
+    func handleEvent(forRegion region: CLRegion!) {
+        print("Geofence triggered! \(region.identifier)")
+        let notificaiton = UNMutableNotificationContent()
+        notificaiton.title = region.identifier
+        notificaiton.body = "Yay, you got a notification becuase you entered a geofence!"
+        notificaiton.sound = UNNotificationSound.default()
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        
+        let identifier = "TestNotification"
+        let request = UNNotificationRequest(identifier: identifier, content: notificaiton, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: { (error) in
+            if error != nil {
+                print(error.debugDescription)
+            }
+        })
+        
+        locationManager.stopMonitoring(for: region)
+    }
+    
 }
 

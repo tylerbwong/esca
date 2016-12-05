@@ -52,6 +52,7 @@
 		70CA45621DF4CD660099F097 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		70CA45641DF4CD850099F097 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E158984EE497AB58F2A6EAD2 /* Pods-esca.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esca.debug.xcconfig"; path = "Pods/Target Support Files/Pods-esca/Pods-esca.debug.xcconfig"; sourceTree = "<group>"; };
+		E35AEA421DF553CE0099097E /* LocationTest.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LocationTest.gpx; sourceTree = "<group>"; };
 		E3A702341DF4003800A26C9D /* AddDealTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDealTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +109,7 @@
 				E3A702341DF4003800A26C9D /* AddDealTableViewController.swift */,
 				70CA45601DF4CC4F0099F097 /* MapViewController.swift */,
 				159CCF941DF545770074A032 /* Location.swift */,
+				E35AEA421DF553CE0099097E /* LocationTest.gpx */,
 			);
 			path = esca;
 			sourceTree = "<group>";
@@ -168,6 +170,9 @@
 						DevelopmentTeam = RKXT8ZV897;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
 								enabled = 1;
 							};
