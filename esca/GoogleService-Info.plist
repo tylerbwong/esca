@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>856497970996-76pughd7bulaujqavkofcvqvh6usqrbt.apps.googleusercontent.com</string>
+	<string>856497970996-g11p8kael5lfpe0f0do76ms80v68tn3i.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.856497970996-76pughd7bulaujqavkofcvqvh6usqrbt</string>
+	<string>com.googleusercontent.apps.856497970996-g11p8kael5lfpe0f0do76ms80v68tn3i</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCRnTjeesKOzqA9mDpZcXocZmdbhMrKN1s</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.io.esca</string>
+	<string>edu.cuesta.esca</string>
 	<key>PROJECT_ID</key>
 	<string>esca-de398</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:856497970996:ios:006ebda8a9e38aaf</string>
+	<string>1:856497970996:ios:4c7026ab5c185176</string>
 	<key>DATABASE_URL</key>
 	<string>https://esca-de398.firebaseio.com</string>
 </dict>

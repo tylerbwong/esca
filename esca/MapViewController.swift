@@ -15,9 +15,9 @@ import SideMenu
 class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var map: MKMapView!
-   
+    
     let locationManager = CLLocationManager()
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

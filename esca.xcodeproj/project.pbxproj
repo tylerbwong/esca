@@ -11,6 +11,7 @@
 		154ED8D11DDFCEB300B9A71B /* Deal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ED8D01DDFCEB300B9A71B /* Deal.swift */; };
 		154ED8D31DDFCFBB00B9A71B /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ED8D21DDFCFBB00B9A71B /* Feedback.swift */; };
 		154ED8D51DDFD03700B9A71B /* ActivityEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ED8D41DDFD03700B9A71B /* ActivityEntry.swift */; };
+		156096BB1DF620000015681D /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156096BA1DF620000015681D /* GameKit.framework */; };
 		156FE85D1DC5558200E75CF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156FE85C1DC5558200E75CF8 /* AppDelegate.swift */; };
 		156FE85F1DC5558200E75CF8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156FE85E1DC5558200E75CF8 /* LoginViewController.swift */; };
 		156FE8621DC5558200E75CF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 156FE8601DC5558200E75CF8 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 		154ED8D01DDFCEB300B9A71B /* Deal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deal.swift; sourceTree = "<group>"; };
 		154ED8D21DDFCFBB00B9A71B /* Feedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		154ED8D41DDFD03700B9A71B /* ActivityEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityEntry.swift; sourceTree = "<group>"; };
+		156096BA1DF620000015681D /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		156FE8591DC5558100E75CF8 /* esca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = esca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		156FE85C1DC5558200E75CF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		156FE85E1DC5558200E75CF8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				70CA45651DF4CD850099F097 /* CoreLocation.framework in Frameworks */,
 				70CA45631DF4CD660099F097 /* MapKit.framework in Frameworks */,
 				66005694A249D3DE1A51C788 /* Pods_esca.framework in Frameworks */,
+				156096BB1DF620000015681D /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +126,7 @@
 		764393559E68288D1354D84D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				156096BA1DF620000015681D /* GameKit.framework */,
 				70CA45641DF4CD850099F097 /* CoreLocation.framework */,
 				70CA45621DF4CD660099F097 /* MapKit.framework */,
 				600163D7BA5F549A6FC9BCD1 /* Pods_esca.framework */,
@@ -180,7 +184,7 @@
 								enabled = 1;
 							};
 							com.apple.GameCenter = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.Keychain = {
 								enabled = 1;
@@ -416,6 +420,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = esca/esca.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 24AD2BPGNN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -424,9 +429,10 @@
 				INFOPLIST_FILE = esca/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.io.esca;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.cuesta.esca;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 			};
 			name = Debug;
 		};
@@ -437,6 +443,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = esca/esca.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 24AD2BPGNN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -445,9 +452,10 @@
 				INFOPLIST_FILE = esca/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.io.esca;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.cuesta.esca;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 			};
 			name = Release;
 		};
