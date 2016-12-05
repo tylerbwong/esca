@@ -9,11 +9,9 @@ target 'esca' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
-  pod 'Firebase/Crash'
-  pod 'FirebaseUI', '~> 1.0'
+  pod 'Kingfisher', '~> 3.0'
   pod 'Bolts'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
   pod 'SideMenu'
-  pod 'SwiftyJSON'
 end

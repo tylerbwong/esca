@@ -71,7 +71,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d7t-gh-Can" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1479" y="-751"/>
+            <point key="canvasLocation" x="-594" y="800"/>
         </scene>
         <!--New Deal-->
         <scene sceneID="yVV-rg-lGu">
@@ -93,7 +93,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppPhotoImage" translatesAutoresizingMaskIntoConstraints="NO" id="31B-BB-ehF">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="214"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="213"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                     </accessibility>
@@ -224,6 +224,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="additionalInfoField" destination="D4l-8g-OYS" id="wSr-Uy-I0G"/>
                         <outlet property="dealImage" destination="31B-BB-ehF" id="Sw4-qE-4W6"/>
                         <outlet property="dealTitleField" destination="nD0-s2-Jur" id="ePj-xJ-c6g"/>
                         <outlet property="locationField" destination="J9B-yb-74Y" id="Swt-GP-mfk"/>
@@ -593,7 +594,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hJ-uv-eMy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2207.1999999999998" y="-565.36731634182911"/>
+            <point key="canvasLocation" x="1242" y="-752"/>
         </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="nI4-gB-UZa">
@@ -635,7 +636,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="64w-cA-JqG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1268" y="-565.36731634182911"/>
+            <point key="canvasLocation" x="1242" y="27"/>
         </scene>
     </scenes>
     <resources>

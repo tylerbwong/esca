@@ -7,26 +7,59 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseStorage
 
 class AddDealTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var dealImage: UIImageView!
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var dealTitleField: UITextField!
     @IBOutlet weak var additionalInfoField: UITextField!
+   
+    let ourQueue = OperationQueue()
+    let mainQueue = OperationQueue.main
+   
+    let dealsRef:FIRDatabaseReference = FIRDatabase.database().reference().child("deals")
+    let storageRef:FIRStorageReference = FIRStorage.storage().reference()
 
     override func viewDidLoad() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: UIBarButtonItemStyle.plain, target: self, action: #selector(AddDealTableViewController.addDeal))
     }
     
     func addDeal() {
-        
+        let newDeal:FIRDatabaseReference = dealsRef.childByAutoId()
+        let metaData:FIRStorageMetadata = FIRStorageMetadata()
+      
+        let newImage:FIRStorageReference = storageRef.child("deals").child("\(newDeal.key).jpg")
+      
+      self.ourQueue.addOperation {
+          if let uploadData = self.dealImage.image!.jpegData(.medium) {
+              newImage.put(uploadData, metadata: metaData) {(metaData, error) in
+                  let photoUrl = metaData!.downloadURL()!.absoluteString
+               
+                  newDeal.setValue(["name": self.dealTitleField.text!,
+                                    "description": self.additionalInfoField.text!,
+                                    "location": self.locationField.text!,
+                                    "accepted": 0,
+                                    "rejected": 0,
+                                    "endDate": String(Date().timeIntervalSinceNow),
+                                    "startDate": String(Date().timeIntervalSinceNow),
+                                    "username": "Britany Berlanga",
+                                    "userId": 1,
+                                    "photoUrl": photoUrl])
+            }
+         }
+         self.mainQueue.addOperation {
+             _ = self.navigationController?.popViewController(animated: true)
+         }
+      }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+   
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let section = indexPath.section
@@ -111,4 +144,27 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
     }
     */
 
+}
+
+extension UIImage {
+   enum JPEGQuality: CGFloat {
+      case lowest  = 0
+      case low     = 0.25
+      case medium  = 0.5
+      case high    = 0.75
+      case highest = 1
+   }
+   
+   /// Returns the data for the specified image in PNG format
+   /// If the image object’s underlying image data has been purged, calling this function forces that data to be reloaded into memory.
+   ///
+   /// Returns a data object containing the PNG data, or nil if there was a problem generating the data. This function may return nil if the image has no data or if the underlying CGImageRef contains data in an unsupported bitmap format.
+   var pngData: Data? { return UIImagePNGRepresentation(self) }
+   
+   /// Returns the data for the specified image in JPEG format.
+   /// If the image object’s underlying image data has been purged, calling this function forces that data to be reloaded into memory.
+   /// - returns: A data object containing the JPEG data, or nil if there was a problem generating the data. This function may return nil if the image has no data or if the underlying CGImageRef contains data in an unsupported bitmap format.
+   func jpegData(_ quality: JPEGQuality) -> Data? {
+      return UIImageJPEGRepresentation(self, quality.rawValue)
+   }
 }

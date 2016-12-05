@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import MapKit
+import Kingfisher
 import FirebaseDatabase
 
 class DealViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
    
    @IBOutlet weak var dealTableView: UITableView!
+   
+   //let request = MKLocalSearchRequest()
    
    var dealsRef:FIRDatabaseReference = FIRDatabase.database().reference().child("deals")
    var deals:[Deal] = []
@@ -19,17 +23,49 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
    override func viewDidLoad() {
       super.viewDidLoad()
       
+//      request.naturalLanguageQuery = "Restaurants"
+//      request.region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(35.2539788, -120.6942357), MKCoordinateSpanMake(10.0, 10.0))
+//      
+//      let search = MKLocalSearch(request: request)
+//      search.start(completionHandler: {(response, error) in
+//         for item in response!.mapItems {
+//            print("Name = \(item.name)")
+//            print("Phone = \(item.phoneNumber)")
+//         }
+//      })
+
+         
       dealsRef.observe(.childAdded, with: {(snapshot) in
          let postDict = snapshot.value as? [String : AnyObject] ?? [:]
          var tempDeal:Deal
          
-         tempDeal = Deal(postDict["id"] as! Int, postDict["name"] as! String, postDict["description"] as! String, postDict["startDate"] as! String, postDict["endDate"] as! String, postDict["photoUrl"] as! String, "", 0, postDict["username"] as! String)
+         tempDeal = Deal(postDict["name"] as! String, postDict["description"] as! String, postDict["startDate"] as! String, postDict["endDate"] as! String, postDict["photoUrl"] as! String, "", 0, postDict["username"] as! String)
          tempDeal.accepted = postDict["accepted"] as? Int
          tempDeal.rejected = postDict["rejected"] as? Int
          self.deals.append(tempDeal)
          
          self.dealTableView.reloadData()
       })
+      
+      dealsRef.observe(.childRemoved, with: {(snapshot) in
+         let index = self.indexOfDeal(snapshot: snapshot)
+         self.deals.remove(at: index)
+         self.dealTableView.reloadData()
+      })
+   }
+   
+   func indexOfDeal(snapshot: FIRDataSnapshot) -> Int {
+      var index = 0
+      let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+      
+      for deal in self.deals {
+         if (postDict["photoUrl"] as? String == deal.photoUrl) {
+            return index
+         }
+         index += 1
+      }
+      
+      return -1
    }
 
    override func didReceiveMemoryWarning() {
@@ -62,37 +98,20 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
       let cell = tableView.dequeueReusableCell(withIdentifier: "dealCell", for: indexPath) as? DealCell
       let curDeal = deals[indexPath.row]
       
-      cell?.dealImage.downloadedFrom(link: curDeal.photoUrl!)
+      cell?.dealImage.kf.setImage(with: URL(string: curDeal.photoUrl!))
       cell?.dealTitleLabel.text = curDeal.name!
       cell?.dealAuthorLabel.text = "by \(curDeal.username!)"
       cell?.dealDateLabel.text = curDeal.startDate!
       cell?.dealDescriptionLabel.text = curDeal.description!
-      cell?.dealPercentLabel.text = curDeal.percentage;
+      
+      if curDeal.percentage != "nan%" {
+         cell?.dealPercentLabel.text = curDeal.percentage;
+      }
+      else {
+         cell?.dealPercentLabel.text = "0%"
+      }
       
       return cell!
       
-   }
-}
-
-extension UIImageView {
-   func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
-      contentMode = mode
-      URLSession.shared.dataTask(with: url) { (data, response, error) in
-         guard
-            let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-            let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-            let data = data, error == nil,
-            let image = UIImage(data: data)
-            else {
-               return
-         }
-         DispatchQueue.main.async() { () -> Void in
-            self.image = image
-         }
-         }.resume()
-   }
-   func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
-      guard let url = URL(string: link) else { return }
-      downloadedFrom(url: url, contentMode: mode)
    }
 }
