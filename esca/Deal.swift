@@ -30,18 +30,16 @@ class Deal {
          }
       }
    }
-   var userId:Int!
    var username:String!
    
    init(_ name:String, _ description:String, _ startDate:String, _ endDate:String,
-        _ photoUrl:String, _ location:String, _ userId:Int, _ username:String) {
+        _ photoUrl:String, _ location:String, _ username:String) {
       self.name = name
       self.description = description
       self.startDate = startDate
       self.endDate = endDate
       self.photoUrl = photoUrl
       self.location = location
-      self.userId = userId
       self.username = username
    }
 }

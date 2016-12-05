@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseStorage
+import FirebaseAuth
 
 class AddDealTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var dealImage: UIImageView!
@@ -44,8 +45,7 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
                                     "rejected": 0,
                                     "endDate": String(Date().timeIntervalSinceNow),
                                     "startDate": String(Date().timeIntervalSinceNow),
-                                    "username": "Britany Berlanga",
-                                    "userId": 1,
+                                    "username": FIRAuth.auth()?.currentUser?.displayName ?? "User",
                                     "photoUrl": photoUrl])
             }
          }

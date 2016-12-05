@@ -39,7 +39,7 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
          let postDict = snapshot.value as? [String : AnyObject] ?? [:]
          var tempDeal:Deal
          
-         tempDeal = Deal(postDict["name"] as! String, postDict["description"] as! String, postDict["startDate"] as! String, postDict["endDate"] as! String, postDict["photoUrl"] as! String, "", 0, postDict["username"] as! String)
+         tempDeal = Deal(postDict["name"] as! String, postDict["description"] as! String, postDict["startDate"] as! String, postDict["endDate"] as! String, postDict["photoUrl"] as! String, "", postDict["username"] as! String)
          tempDeal.accepted = postDict["accepted"] as? Int
          tempDeal.rejected = postDict["rejected"] as? Int
          self.deals.append(tempDeal)
