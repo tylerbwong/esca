@@ -37,14 +37,18 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
           if let uploadData = self.dealImage.image!.jpegData(.medium) {
               newImage.put(uploadData, metadata: metaData) {(metaData, error) in
                   let photoUrl = metaData!.downloadURL()!.absoluteString
+                  let date = Date()
+                  let formatter = DateFormatter()
+                  formatter.dateFormat = "MM/d/YY"
+                  let startDate = formatter.string(from: date)
                
                   newDeal.setValue(["name": self.dealTitleField.text!,
                                     "description": self.additionalInfoField.text!,
                                     "location": self.locationField.text!,
                                     "accepted": 0,
                                     "rejected": 0,
-                                    "endDate": String(Date().timeIntervalSinceNow),
-                                    "startDate": String(Date().timeIntervalSinceNow),
+                                    "endDate": "never",
+                                    "startDate": startDate,
                                     "username": FIRAuth.auth()?.currentUser?.displayName ?? "User",
                                     "photoUrl": photoUrl])
             }
