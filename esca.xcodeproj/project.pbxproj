@@ -25,6 +25,8 @@
 		70CA45611DF4CC4F0099F097 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CA45601DF4CC4F0099F097 /* MapViewController.swift */; };
 		70CA45631DF4CD660099F097 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70CA45621DF4CD660099F097 /* MapKit.framework */; };
 		70CA45651DF4CD850099F097 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70CA45641DF4CD850099F097 /* CoreLocation.framework */; };
+		E322A0671DF5F2DA00081FCD /* RestaurantSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E322A0661DF5F2DA00081FCD /* RestaurantSearchTableViewController.swift */; };
+		E322A0691DF5F55E00081FCD /* RestaurantSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E322A0681DF5F55E00081FCD /* RestaurantSearchTableViewCell.swift */; };
 		E3A702351DF4003800A26C9D /* AddDealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A702341DF4003800A26C9D /* AddDealTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +54,8 @@
 		70CA45621DF4CD660099F097 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		70CA45641DF4CD850099F097 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E158984EE497AB58F2A6EAD2 /* Pods-esca.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esca.debug.xcconfig"; path = "Pods/Target Support Files/Pods-esca/Pods-esca.debug.xcconfig"; sourceTree = "<group>"; };
+		E322A0661DF5F2DA00081FCD /* RestaurantSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantSearchTableViewController.swift; sourceTree = "<group>"; };
+		E322A0681DF5F55E00081FCD /* RestaurantSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantSearchTableViewCell.swift; sourceTree = "<group>"; };
 		E35AEA421DF553CE0099097E /* LocationTest.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LocationTest.gpx; sourceTree = "<group>"; };
 		E3A702341DF4003800A26C9D /* AddDealTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDealTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +114,8 @@
 				70CA45601DF4CC4F0099F097 /* MapViewController.swift */,
 				159CCF941DF545770074A032 /* Location.swift */,
 				E35AEA421DF553CE0099097E /* LocationTest.gpx */,
+				E322A0661DF5F2DA00081FCD /* RestaurantSearchTableViewController.swift */,
+				E322A0681DF5F55E00081FCD /* RestaurantSearchTableViewCell.swift */,
 			);
 			path = esca;
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 				E3A702351DF4003800A26C9D /* AddDealTableViewController.swift in Sources */,
 				154ED8CF1DDFC9C600B9A71B /* User.swift in Sources */,
 				154ED8D31DDFCFBB00B9A71B /* Feedback.swift in Sources */,
+				E322A0691DF5F55E00081FCD /* RestaurantSearchTableViewCell.swift in Sources */,
 				154ED8D11DDFCEB300B9A71B /* Deal.swift in Sources */,
 				156FE85F1DC5558200E75CF8 /* LoginViewController.swift in Sources */,
 				70CA45611DF4CC4F0099F097 /* MapViewController.swift in Sources */,
@@ -282,6 +289,7 @@
 				156FE85D1DC5558200E75CF8 /* AppDelegate.swift in Sources */,
 				15ED2AA71DE51B4900A7A018 /* SideMenuViewController.swift in Sources */,
 				159CCF951DF545770074A032 /* Location.swift in Sources */,
+				E322A0671DF5F2DA00081FCD /* RestaurantSearchTableViewController.swift in Sources */,
 				15FA2AE71DE445EF00FF5590 /* DealViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +422,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = esca/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.io.esca;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -434,6 +443,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = esca/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.io.esca;
 				PRODUCT_NAME = "$(TARGET_NAME)";

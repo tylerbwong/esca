@@ -16,12 +16,15 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var dealTitleField: UITextField!
     @IBOutlet weak var additionalInfoField: UITextField!
+    @IBOutlet weak var locationLabel: UILabel!
    
     let ourQueue = OperationQueue()
     let mainQueue = OperationQueue.main
    
     let dealsRef:FIRDatabaseReference = FIRDatabase.database().reference().child("deals")
     let storageRef:FIRStorageReference = FIRStorage.storage().reference()
+    
+    var location: Location?
 
     override func viewDidLoad() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: UIBarButtonItemStyle.plain, target: self, action: #selector(AddDealTableViewController.addDeal))
@@ -79,6 +82,10 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
                 present(imagePicker,animated: true, completion: nil)
             }
         }
+        // if the location field was selected
+        else if (section == 1 && row == 0) {
+            performSegue(withIdentifier: "restaurantSearch", sender: self)
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -87,6 +94,17 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
             dealImage.contentMode = UIViewContentMode.scaleAspectFill
         }
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction
+    func unwindFromSearch(for unwindSegue: UIStoryboardSegue) {
+        let searchViewController = unwindSegue.source as! RestaurantSearchTableViewController
+        let row = searchViewController.tableView.indexPathForSelectedRow?.row
+        location = searchViewController.locations[row!]
+        locationLabel.text = location?.formattedString
+        locationLabel.textColor = .black
+        searchViewController.searchController.isActive = false
+        searchViewController.dismiss(animated: true, completion: nil)
     }
     
 
@@ -138,7 +156,6 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -146,7 +163,6 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }
 

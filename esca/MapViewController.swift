@@ -20,10 +20,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        // Ask for Authorisation from the User.
-        self.locationManager.requestAlwaysAuthorization()
         
         // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()

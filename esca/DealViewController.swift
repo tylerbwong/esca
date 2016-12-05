@@ -19,7 +19,7 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
    let locationManager = CLLocationManager()
    
-   //let request = MKLocalSearchRequest()
+   
    
    var dealsRef:FIRDatabaseReference = FIRDatabase.database().reference().child("deals")
    var deals:[Deal] = []
@@ -32,17 +32,6 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
       locationManager.requestAlwaysAuthorization()
       self.locationManager.startUpdatingLocation()
     
-//      request.naturalLanguageQuery = "Restaurants"
-//      request.region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(35.2539788, -120.6942357), MKCoordinateSpanMake(10.0, 10.0))
-//      
-//      let search = MKLocalSearch(request: request)
-//      search.start(completionHandler: {(response, error) in
-//         for item in response!.mapItems {
-//            print("Name = \(item.name)")
-//            print("Phone = \(item.phoneNumber)")
-//         }
-//      })
-         
       dealsRef.observe(.childAdded, with: {(snapshot) in
          let postDict = snapshot.value as? [String : AnyObject] ?? [:]
          var tempDeal:Deal
