@@ -167,11 +167,14 @@
 				TargetAttributes = {
 					156FE8581DC5558100E75CF8 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = RKXT8ZV897;
+						DevelopmentTeam = 24AD2BPGNN;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
+							};
+							com.apple.GameCenter = {
+								enabled = 0;
 							};
 							com.apple.Keychain = {
 								enabled = 1;
@@ -405,7 +408,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = esca/esca.entitlements;
-				DEVELOPMENT_TEAM = RKXT8ZV897;
+				DEVELOPMENT_TEAM = 24AD2BPGNN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -425,7 +428,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = esca/esca.entitlements;
-				DEVELOPMENT_TEAM = RKXT8ZV897;
+				DEVELOPMENT_TEAM = 24AD2BPGNN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

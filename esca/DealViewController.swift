@@ -12,16 +12,19 @@ import Kingfisher
 import FirebaseDatabase
 import CoreLocation
 
-class DealViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class DealViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
    
+   @IBOutlet weak var searchBar: UISearchBar!
    @IBOutlet weak var dealTableView: UITableView!
     
-    let locationManager = CLLocationManager()
+   let locationManager = CLLocationManager()
    
    //let request = MKLocalSearchRequest()
    
    var dealsRef:FIRDatabaseReference = FIRDatabase.database().reference().child("deals")
    var deals:[Deal] = []
+   var filtered:[Deal] = []
+   var searchActive:Bool = false
 
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -39,7 +42,6 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //            print("Phone = \(item.phoneNumber)")
 //         }
 //      })
-
          
       dealsRef.observe(.childAdded, with: {(snapshot) in
          let postDict = snapshot.value as? [String : AnyObject] ?? [:]
@@ -49,7 +51,6 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
          tempDeal.accepted = postDict["accepted"] as? Int
          tempDeal.rejected = postDict["rejected"] as? Int
          self.deals.append(tempDeal)
-         
          self.dealTableView.reloadData()
       })
       
@@ -74,6 +75,37 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
       }
       
       return -1
+   }
+   
+   func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+      searchActive = true;
+   }
+   
+   func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+      searchActive = false;
+   }
+   
+   func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+      searchActive = false;
+   }
+   
+   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+      searchActive = false;
+   }
+   
+   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+      filtered = deals.filter() {
+         $0.name!.lowercased().range(of: searchText.lowercased()) != nil || $0.username!.lowercased().range(of: searchText.lowercased()) != nil
+      }
+      
+      if(filtered.count == 0){
+         searchActive = false;
+      }
+      else {
+         searchActive = true;
+      }
+      
+      self.dealTableView.reloadData()
    }
 
    override func didReceiveMemoryWarning() {
@@ -120,12 +152,22 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
    }
    
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      if (searchActive) {
+         return filtered.count
+      }
       return deals.count
    }
    
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: "dealCell", for: indexPath) as? DealCell
-      let curDeal = deals[indexPath.row]
+      let curDeal:Deal
+      
+      if (searchActive) {
+         curDeal = filtered[indexPath.row]
+      }
+      else {
+         curDeal = deals[indexPath.row]
+      }
       
       cell?.dealImage.kf.setImage(with: URL(string: curDeal.photoUrl!))
       cell?.dealTitleLabel.text = curDeal.name!
