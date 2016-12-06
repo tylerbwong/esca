@@ -2,6 +2,13 @@
 
 Esca is an iOS application built to bring money-saving food lovers together!
 
+On launch the default user location is set to 35.253953, -120.694159. This will
+allow you to see the set of deals we currently have.
+
+In "DealViewController" we start monitoring a geofence around Apple HQ.
+Please Use LocationTest.gpx when mocking location and close the app when performing the test
+to see the local user notification
+
 ### License
 
 ```
