@@ -62,7 +62,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         let postDict = snapshot.value as? [String : AnyObject] ?? [:]
         
         for annotation in self.annotations {
-            if (postDict["location"]?["latitude"] as? Double == annotation.coordinate.latitude) {
+            if (postDict["location"]?["latitude"] as? Double == annotation.coordinate.latitude && postDict["location"]?["longitude"] as? Double == annotation.coordinate.longitude && postDict["location"]?["name"] as? String == annotation.title && postDict["name"] as? String == annotation.subtitle) {
                 return index
             }
             index += 1
