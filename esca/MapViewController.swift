@@ -48,6 +48,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             dropPin.coordinate = coordinates
             dropPin.title = postDict["location"]?["name"] as? String
             dropPin.subtitle = postDict["name"] as? String
+            //let photoUrl:String = postDict["photoUrl"] as? String
             self.annotations.append(dropPin)
             self.map.addAnnotation(dropPin)
         })
@@ -80,7 +81,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last! as CLLocation
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
         
         map.setRegion(region, animated: true)
     }
