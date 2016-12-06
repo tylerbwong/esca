@@ -32,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		154DDD3B1DF64BC900B98549 /* LocationSLO.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LocationSLO.gpx; sourceTree = "<group>"; };
 		154ED8CE1DDFC9C600B9A71B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		154ED8D01DDFCEB300B9A71B /* Deal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deal.swift; sourceTree = "<group>"; };
 		154ED8D21DDFCFBB00B9A71B /* Feedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
@@ -98,6 +99,7 @@
 		156FE85B1DC5558100E75CF8 /* esca */ = {
 			isa = PBXGroup;
 			children = (
+				154DDD3B1DF64BC900B98549 /* LocationSLO.gpx */,
 				15E928541DDAE9070088585F /* esca.entitlements */,
 				15E928511DDAD5570088585F /* GoogleService-Info.plist */,
 				156FE85C1DC5558200E75CF8 /* AppDelegate.swift */,

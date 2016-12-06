@@ -19,8 +19,6 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     let locationManager = CLLocationManager()
     
-    
-    
     var dealsRef:FIRDatabaseReference = FIRDatabase.database().reference().child("deals")
     var deals:[Deal] = []
     var filtered:[Deal] = []
@@ -49,6 +47,7 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.dealTableView.reloadData()
         })
         
+        // Implemented Geofencing! Use LocationTest.gpx when mocking location (close app when preforming test)
         startMonitoring(coordinate: CLLocationCoordinate2D(latitude: 37.331695, longitude: -122.0322801), radius: 1000, identifier: "There's a new deal nearby")
     }
     
