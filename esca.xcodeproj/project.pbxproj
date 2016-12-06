@@ -23,6 +23,9 @@
 		15ED2AA71DE51B4900A7A018 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ED2AA61DE51B4900A7A018 /* SideMenuViewController.swift */; };
 		15FA2AE71DE445EF00FF5590 /* DealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA2AE61DE445EF00FF5590 /* DealViewController.swift */; };
 		66005694A249D3DE1A51C788 /* Pods_esca.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 600163D7BA5F549A6FC9BCD1 /* Pods_esca.framework */; };
+		709812BE1DF66D2000F82CC1 /* DealAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 709812BD1DF66D2000F82CC1 /* DealAnnotationView.xib */; };
+		709812C01DF66D3900F82CC1 /* DealAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709812BF1DF66D3900F82CC1 /* DealAnnotationView.swift */; };
+		709812C21DF66DA000F82CC1 /* DealAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709812C11DF66DA000F82CC1 /* DealAnnotation.swift */; };
 		70CA45611DF4CC4F0099F097 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CA45601DF4CC4F0099F097 /* MapViewController.swift */; };
 		70CA45631DF4CD660099F097 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70CA45621DF4CD660099F097 /* MapKit.framework */; };
 		70CA45651DF4CD850099F097 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70CA45641DF4CD850099F097 /* CoreLocation.framework */; };
@@ -53,6 +56,9 @@
 		15FA2AE61DE445EF00FF5590 /* DealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealViewController.swift; sourceTree = "<group>"; };
 		42ADB63529070462D627DADE /* Pods-esca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esca.release.xcconfig"; path = "Pods/Target Support Files/Pods-esca/Pods-esca.release.xcconfig"; sourceTree = "<group>"; };
 		600163D7BA5F549A6FC9BCD1 /* Pods_esca.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_esca.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		709812BD1DF66D2000F82CC1 /* DealAnnotationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealAnnotationView.xib; sourceTree = "<group>"; };
+		709812BF1DF66D3900F82CC1 /* DealAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealAnnotationView.swift; sourceTree = "<group>"; };
+		709812C11DF66DA000F82CC1 /* DealAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealAnnotation.swift; sourceTree = "<group>"; };
 		70CA45601DF4CC4F0099F097 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		70CA45621DF4CD660099F097 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		70CA45641DF4CD850099F097 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -117,6 +123,9 @@
 				15ED2AA61DE51B4900A7A018 /* SideMenuViewController.swift */,
 				E3A702341DF4003800A26C9D /* AddDealTableViewController.swift */,
 				70CA45601DF4CC4F0099F097 /* MapViewController.swift */,
+				709812BD1DF66D2000F82CC1 /* DealAnnotationView.xib */,
+				709812C11DF66DA000F82CC1 /* DealAnnotation.swift */,
+				709812BF1DF66D3900F82CC1 /* DealAnnotationView.swift */,
 				159CCF941DF545770074A032 /* Location.swift */,
 				E35AEA421DF553CE0099097E /* LocationTest.gpx */,
 				E322A0661DF5F2DA00081FCD /* RestaurantSearchTableViewController.swift */,
@@ -222,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				156FE8671DC5558200E75CF8 /* LaunchScreen.storyboard in Resources */,
+				709812BE1DF66D2000F82CC1 /* DealAnnotationView.xib in Resources */,
 				15E928521DDAD5570088585F /* GoogleService-Info.plist in Resources */,
 				156FE8641DC5558200E75CF8 /* Assets.xcassets in Resources */,
 				156FE8621DC5558200E75CF8 /* Main.storyboard in Resources */,
@@ -283,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				709812C21DF66DA000F82CC1 /* DealAnnotation.swift in Sources */,
 				154ED8D51DDFD03700B9A71B /* ActivityEntry.swift in Sources */,
 				E3A702351DF4003800A26C9D /* AddDealTableViewController.swift in Sources */,
 				154ED8CF1DDFC9C600B9A71B /* User.swift in Sources */,
@@ -292,6 +303,7 @@
 				156FE85F1DC5558200E75CF8 /* LoginViewController.swift in Sources */,
 				70CA45611DF4CC4F0099F097 /* MapViewController.swift in Sources */,
 				15C6153D1DE4FAB200CFF3F0 /* DealCell.swift in Sources */,
+				709812C01DF66D3900F82CC1 /* DealAnnotationView.swift in Sources */,
 				156FE85D1DC5558200E75CF8 /* AppDelegate.swift in Sources */,
 				15ED2AA71DE51B4900A7A018 /* SideMenuViewController.swift in Sources */,
 				159CCF951DF545770074A032 /* Location.swift in Sources */,
