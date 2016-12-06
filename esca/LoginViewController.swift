@@ -7,16 +7,22 @@
 //
 
 import UIKit
+import GameKit
 import Firebase
 import FBSDKLoginKit
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     @IBOutlet weak var loginButton: FBSDKLoginButton!
-    
+
+    let player:GKLocalPlayer = GKLocalPlayer.localPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        player.authenticateHandler = {(viewController: UIViewController?, error: Error?) -> Void in
+            
+        }
         
         loginButton.readPermissions = ["email"]
         loginButton.delegate = self
@@ -48,6 +54,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             
             FIRAuth.auth()?.signIn(with: credential) { (user, error) in
                 if user != nil {
+                    print("\(self.player.isAuthenticated) - This means that we are authenticated with Game Center!")
                     self.goToMain()
                 }
             }
