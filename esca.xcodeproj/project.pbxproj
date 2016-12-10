@@ -21,6 +21,7 @@
 		15C6153D1DE4FAB200CFF3F0 /* DealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C6153C1DE4FAB200CFF3F0 /* DealCell.swift */; };
 		15E928521DDAD5570088585F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15E928511DDAD5570088585F /* GoogleService-Info.plist */; };
 		15ED2AA71DE51B4900A7A018 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ED2AA61DE51B4900A7A018 /* SideMenuViewController.swift */; };
+		15F1EC971DFC92B100B5EBDF /* DealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F1EC961DFC92B100B5EBDF /* DealDetailViewController.swift */; };
 		15FA2AE71DE445EF00FF5590 /* DealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA2AE61DE445EF00FF5590 /* DealViewController.swift */; };
 		66005694A249D3DE1A51C788 /* Pods_esca.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 600163D7BA5F549A6FC9BCD1 /* Pods_esca.framework */; };
 		709812BE1DF66D2000F82CC1 /* DealAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 709812BD1DF66D2000F82CC1 /* DealAnnotationView.xib */; };
@@ -53,6 +54,7 @@
 		15E928511DDAD5570088585F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		15E928541DDAE9070088585F /* esca.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = esca.entitlements; sourceTree = "<group>"; };
 		15ED2AA61DE51B4900A7A018 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		15F1EC961DFC92B100B5EBDF /* DealDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealDetailViewController.swift; sourceTree = "<group>"; };
 		15FA2AE61DE445EF00FF5590 /* DealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealViewController.swift; sourceTree = "<group>"; };
 		42ADB63529070462D627DADE /* Pods-esca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esca.release.xcconfig"; path = "Pods/Target Support Files/Pods-esca/Pods-esca.release.xcconfig"; sourceTree = "<group>"; };
 		600163D7BA5F549A6FC9BCD1 /* Pods_esca.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_esca.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +132,7 @@
 				E35AEA421DF553CE0099097E /* LocationTest.gpx */,
 				E322A0661DF5F2DA00081FCD /* RestaurantSearchTableViewController.swift */,
 				E322A0681DF5F55E00081FCD /* RestaurantSearchTableViewCell.swift */,
+				15F1EC961DFC92B100B5EBDF /* DealDetailViewController.swift */,
 			);
 			path = esca;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				70CA45611DF4CC4F0099F097 /* MapViewController.swift in Sources */,
 				15C6153D1DE4FAB200CFF3F0 /* DealCell.swift in Sources */,
 				709812C01DF66D3900F82CC1 /* DealAnnotationView.swift in Sources */,
+				15F1EC971DFC92B100B5EBDF /* DealDetailViewController.swift in Sources */,
 				156FE85D1DC5558200E75CF8 /* AppDelegate.swift in Sources */,
 				15ED2AA71DE51B4900A7A018 /* SideMenuViewController.swift in Sources */,
 				159CCF951DF545770074A032 /* Location.swift in Sources */,

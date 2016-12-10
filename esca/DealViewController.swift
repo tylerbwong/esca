@@ -123,15 +123,21 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
         print("Location Manager failed with the following error: \(error)")
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    
+    // MARK: - Segue
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDeal" {
+            if let indexPath = dealTableView.indexPathForSelectedRow {
+                let deal = deals[indexPath.row]
+                let controller = segue.destination as! DealDetailViewController
+                controller.deal = deal
+                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
+                controller.navigationItem.leftItemsSupplementBackButton = true
+            }
+        }
+    }
+    
     
     // MARK: - Table view data source
     
