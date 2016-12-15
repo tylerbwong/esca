@@ -76,8 +76,10 @@ class RestaurantSearchTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "restaurantInfoCell", for: indexPath) as! RestaurantSearchTableViewCell
-        let location = locations[indexPath.row]
-        cell.restaurantInfoLabel.text = location.formattedString
+        if locations.count > indexPath.row {
+            let location = locations[indexPath.row]
+            cell.restaurantInfoLabel.text = location.formattedString
+        }
         return cell
     }
     

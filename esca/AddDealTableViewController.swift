@@ -20,8 +20,11 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
     @IBOutlet weak var dateSwitch: UISwitch!
     @IBOutlet weak var startDateLabel: UILabel!
     @IBOutlet weak var endDateLabel: UILabel!
+    @IBOutlet weak var endDatePicker: UIDatePicker!
+    @IBOutlet weak var startDatePicker: UIDatePicker!
     
     let blueTextColor = UIColor(red: 0, green: 122.0/255.0, blue: 1, alpha: 1)
+    let dateFormatter = DateFormatter()
     
     let ourQueue = OperationQueue()
     let mainQueue = OperationQueue.main
@@ -36,6 +39,13 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
     override func viewDidLoad() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: UIBarButtonItemStyle.plain, target: self, action: #selector(AddDealTableViewController.addDeal))
         tableView.tableFooterView = UIView(frame: CGRect.zero)
+        
+        dateFormatter.dateFormat = "MMMM d, yyyy"
+        let today = Date()
+        startDateLabel.text = dateFormatter.string(from: today)
+        endDateLabel.text = dateFormatter.string(from: today)
+        endDatePicker.minimumDate = today
+        
     }
     
     func addDeal() {
@@ -49,10 +59,21 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
                 
                 newImage.put(uploadData, metadata: metaData) {(metaData, error) in
                     let photoUrl = metaData!.downloadURL()!.absoluteString
-                    let date = Date()
+                    
                     let formatter = DateFormatter()
                     formatter.dateFormat = "MM/d/YY"
-                    let startDate = formatter.string(from: date)
+                    var startDate: String = ""
+                    var endDate: String = ""
+                    
+                    if self.dateSwitch.isOn {
+                        startDate = formatter.string(from: self.startDatePicker.date)
+                        endDate = formatter.string(from: self.endDatePicker.date)
+                    }
+                    else {
+                        let date = Date()
+                        startDate = formatter.string(from: date)
+                        endDate = "never"
+                    }
                     
                     newDeal.setValue(["name": self.dealTitleField.text!,
                                       "description": self.additionalInfoField.text!,
@@ -62,8 +83,9 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
                                                    "longitude": location.longitude],
                                       "accepted": 0,
                                       "rejected": 0,
-                                      "endDate": "never",
+                                      "endDate": endDate,
                                       "startDate": startDate,
+                                      "feedbackCount": 0,
                                       "username": auth.currentUser!.displayName!,
                                       "photoUrl": photoUrl])
                     
@@ -91,9 +113,11 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
     }
     
     @IBAction func startDateChanged(_ sender: UIDatePicker) {
+        startDateLabel.text = dateFormatter.string(from: sender.date)
     }
     
     @IBAction func endDateChanged(_ sender: UIDatePicker) {
+        endDateLabel.text = dateFormatter.string(from: sender.date)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
