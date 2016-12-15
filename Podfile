@@ -14,4 +14,5 @@ target 'esca' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
   pod 'SideMenu'
+  pod 'FontAwesome.swift'
 end

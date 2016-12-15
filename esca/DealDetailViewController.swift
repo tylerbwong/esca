@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import Kingfisher
+import FontAwesome_swift
 
 class DealDetailViewController: UIViewController {
     @IBOutlet weak var dealImageView: UIImageView!
@@ -22,10 +23,25 @@ class DealDetailViewController: UIViewController {
         getDirections()
     }
     
+    let defaults = UserDefaults.standard
+    
     var deal:Deal?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem()
+        navigationItem.rightBarButtonItem?.target = self
+        navigationItem.rightBarButtonItem?.action = #selector(markFavorite)
+        let attributes = [NSFontAttributeName: UIFont.fontAwesome(ofSize: 20)]
+        navigationItem.rightBarButtonItem?.setTitleTextAttributes(attributes, for: .normal)
+        
+        if defaults.object(forKey: (deal?.key)!) != nil {
+            navigationItem.rightBarButtonItem?.title = String.fontAwesomeIcon(name: .star)
+        }
+        else {
+            navigationItem.rightBarButtonItem?.title = String.fontAwesomeIcon(name: .starO)
+        }
         
         if let deal = self.deal {
             dealImageView.kf.setImage(with: URL(string: deal.photoUrl!))
@@ -49,6 +65,17 @@ class DealDetailViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func markFavorite() {
+        if defaults.object(forKey: (deal?.key)!) != nil {
+            defaults.removeObject(forKey: (deal?.key)!)
+            navigationItem.rightBarButtonItem?.title = String.fontAwesomeIcon(name: .starO)
+        }
+        else {
+            defaults.set(nil, forKey: (deal?.key)!)
+            navigationItem.rightBarButtonItem?.title = String.fontAwesomeIcon(name: .star)
+        }
     }
     
     // MARK: - Segue

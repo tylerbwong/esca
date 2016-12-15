@@ -18,6 +18,7 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var dealTableView: UITableView!
     
     let locationManager = CLLocationManager()
+    let defaults = UserDefaults.standard
     
     var dealsRef: FIRDatabaseReference = FIRDatabase.database().reference().child("deals")
     var deals: [Deal] = []
@@ -38,12 +39,19 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
             tempDeal.feedbackCount = dealDict["feedbackCount"] as? Int
             tempDeal.accepted = dealDict["accepted"] as? Int
             tempDeal.rejected = dealDict["rejected"] as? Int
+            
+            if self.defaults.object(forKey: snapshot.key) != nil {
+                // User has starred this deal on their device
+                // Set geofence for this deal
+            }
+            
             self.deals.append(tempDeal)
             self.dealTableView.reloadData()
         })
         
         dealsRef.observe(.childRemoved, with: {(snapshot) in
             let index = self.indexOfDeal(snapshot: snapshot)
+            self.defaults.removeObject(forKey: self.deals[index].key)
             self.deals.remove(at: index)
             self.dealTableView.reloadData()
         })

@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        if FBSDKAccessToken.current() != nil {
+        if FIRAuth.auth()?.currentUser != nil {
             initialViewController = storyboard.instantiateViewController(withIdentifier: "NavController")
         }
         else {
