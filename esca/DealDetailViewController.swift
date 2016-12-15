@@ -17,6 +17,7 @@ class DealDetailViewController: UIViewController {
     @IBOutlet weak var percentLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var feedbackButton: UIButton!
     @IBAction func directionsAction(_ sender: UIButton) {
         getDirections()
     }
@@ -41,11 +42,24 @@ class DealDetailViewController: UIViewController {
             
             descriptionLabel.text = deal.description
             addressLabel.text = deal.location.address
+            feedbackButton.setTitle("Feedback (\(deal.feedbackCount!))", for: .normal)
+            feedbackButton.contentHorizontalAlignment = .left
         }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: - Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showFeedback" {
+            let controller = segue.destination as! FeedbackViewController
+            controller.dealKey = deal?.key
+            controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
+            controller.navigationItem.leftItemsSupplementBackButton = true
+        }
     }
     
     func getDirections() {

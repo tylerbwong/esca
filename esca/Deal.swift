@@ -9,13 +9,14 @@
 import Foundation
 
 class Deal {
+    var key:String!
     var name:String!
     var description:String!
     var startDate:String?
     var endDate:String?
     var photoUrl:String?
     var location:Location!
-    var feedback:[Feedback]?
+    var feedbackCount:Int!
     var accepted:Int?
     var rejected:Int?
     var percentage:String? {
@@ -32,8 +33,9 @@ class Deal {
     }
     var username:String!
     
-    init(_ name:String, _ description:String, _ startDate:String, _ endDate:String,
+    init(_ key:String, _ name:String, _ description:String, _ startDate:String, _ endDate:String,
          _ photoUrl:String, _ location:Location, _ username:String) {
+        self.key = key
         self.name = name
         self.description = description
         self.startDate = startDate

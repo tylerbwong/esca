@@ -9,17 +9,18 @@
 import Foundation
 
 class Feedback {
-    var approved:Bool!
-    var description:String?
-    var userId:Int!
-    var username:String!
-    var timestamp:Date!
+    var dealKey: String!
+    var approved: Bool?
+    var content: String?
+    var username: String!
+    var date: String!
+    var time: String!
     
-    init(approved:Bool, description:String, userId:Int, username:String, timestamp:Date) {
+    init(_ dealKey: String, _ approved: Bool, _ content: String, _ username: String, _ date: String, _ time: String) {
         self.approved = approved
-        self.description = description
-        self.userId = userId
+        self.content = content
         self.username = username
-        self.timestamp = timestamp
+        self.date = date
+        self.time = time
     }
 }

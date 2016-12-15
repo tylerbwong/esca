@@ -19,6 +19,7 @@
 		156FE8671DC5558200E75CF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 156FE8651DC5558200E75CF8 /* LaunchScreen.storyboard */; };
 		159CCF951DF545770074A032 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CCF941DF545770074A032 /* Location.swift */; };
 		15C6153D1DE4FAB200CFF3F0 /* DealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C6153C1DE4FAB200CFF3F0 /* DealCell.swift */; };
+		15D610E61E023E6400530130 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D610E51E023E6400530130 /* FeedbackViewController.swift */; };
 		15E928521DDAD5570088585F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15E928511DDAD5570088585F /* GoogleService-Info.plist */; };
 		15ED2AA71DE51B4900A7A018 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ED2AA61DE51B4900A7A018 /* SideMenuViewController.swift */; };
 		15F1EC971DFC92B100B5EBDF /* DealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F1EC961DFC92B100B5EBDF /* DealDetailViewController.swift */; };
@@ -51,6 +52,7 @@
 		156FE8681DC5558200E75CF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		159CCF941DF545770074A032 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		15C6153C1DE4FAB200CFF3F0 /* DealCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealCell.swift; sourceTree = "<group>"; };
+		15D610E51E023E6400530130 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		15E928511DDAD5570088585F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		15E928541DDAE9070088585F /* esca.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = esca.entitlements; sourceTree = "<group>"; };
 		15ED2AA61DE51B4900A7A018 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				E322A0661DF5F2DA00081FCD /* RestaurantSearchTableViewController.swift */,
 				E322A0681DF5F55E00081FCD /* RestaurantSearchTableViewCell.swift */,
 				15F1EC961DFC92B100B5EBDF /* DealDetailViewController.swift */,
+				15D610E51E023E6400530130 /* FeedbackViewController.swift */,
 			);
 			path = esca;
 			sourceTree = "<group>";
@@ -187,7 +190,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				TargetAttributes = {
 					156FE8581DC5558100E75CF8 = {
 						CreatedOnToolsVersion = 8.1;
@@ -303,6 +306,7 @@
 				154ED8D31DDFCFBB00B9A71B /* Feedback.swift in Sources */,
 				E322A0691DF5F55E00081FCD /* RestaurantSearchTableViewCell.swift in Sources */,
 				154ED8D11DDFCEB300B9A71B /* Deal.swift in Sources */,
+				15D610E61E023E6400530130 /* FeedbackViewController.swift in Sources */,
 				156FE85F1DC5558200E75CF8 /* LoginViewController.swift in Sources */,
 				70CA45611DF4CC4F0099F097 /* MapViewController.swift in Sources */,
 				15C6153D1DE4FAB200CFF3F0 /* DealCell.swift in Sources */,
@@ -449,8 +453,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.calpoly.csc.2168.esca;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
-				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 			};
 			name = Debug;
 		};
@@ -472,8 +476,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.calpoly.csc.2168.esca;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
-				SWIFT_WHOLE_MODULE_OPTIMIZATION = YES;
 			};
 			name = Release;
 		};

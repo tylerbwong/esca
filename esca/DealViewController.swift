@@ -19,10 +19,10 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     let locationManager = CLLocationManager()
     
-    var dealsRef:FIRDatabaseReference = FIRDatabase.database().reference().child("deals")
-    var deals:[Deal] = []
-    var filtered:[Deal] = []
-    var searchActive:Bool = false
+    var dealsRef: FIRDatabaseReference = FIRDatabase.database().reference().child("deals")
+    var deals: [Deal] = []
+    var filtered: [Deal] = []
+    var searchActive: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +31,13 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.locationManager.startUpdatingLocation()
         
         dealsRef.observe(.childAdded, with: {(snapshot) in
-            let postDict = snapshot.value as? [String : AnyObject] ?? [:]
-            var tempDeal:Deal
+            let dealDict = snapshot.value as! [String : AnyObject]
+            var tempDeal: Deal
             
-            tempDeal = Deal(postDict["name"] as! String, postDict["description"] as! String, postDict["startDate"] as! String, postDict["endDate"] as! String, postDict["photoUrl"] as! String, Location(postDict["location"]?["name"] as! String, postDict["location"]?["address"] as! String, postDict["location"]?["latitude"] as! Double, postDict["location"]?["longitude"] as! Double), postDict["username"] as! String)
-            tempDeal.accepted = postDict["accepted"] as? Int
-            tempDeal.rejected = postDict["rejected"] as? Int
+            tempDeal = Deal(snapshot.key, dealDict["name"] as! String, dealDict["description"] as! String, dealDict["startDate"] as! String, dealDict["endDate"] as! String, dealDict["photoUrl"] as! String, Location(dealDict["location"]?["name"] as! String, dealDict["location"]?["address"] as! String, dealDict["location"]?["latitude"] as! Double, dealDict["location"]?["longitude"] as! Double), dealDict["username"] as! String)
+            tempDeal.feedbackCount = dealDict["feedbackCount"] as? Int
+            tempDeal.accepted = dealDict["accepted"] as? Int
+            tempDeal.rejected = dealDict["rejected"] as? Int
             self.deals.append(tempDeal)
             self.dealTableView.reloadData()
         })
@@ -53,10 +54,10 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func indexOfDeal(snapshot: FIRDataSnapshot) -> Int {
         var index = 0
-        let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+        let dealDict = snapshot.value as? [String : AnyObject] ?? [:]
         
         for deal in self.deals {
-            if (postDict["photoUrl"] as? String == deal.photoUrl) {
+            if (dealDict["photoUrl"] as? String == deal.photoUrl) {
                 return index
             }
             index += 1
