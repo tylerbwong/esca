@@ -17,6 +17,11 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
     @IBOutlet weak var dealTitleField: UITextField!
     @IBOutlet weak var additionalInfoField: UITextField!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var dateSwitch: UISwitch!
+    @IBOutlet weak var startDateLabel: UILabel!
+    @IBOutlet weak var endDateLabel: UILabel!
+    
+    let blueTextColor = UIColor(red: 0, green: 122.0/255.0, blue: 1, alpha: 1)
     
     let ourQueue = OperationQueue()
     let mainQueue = OperationQueue.main
@@ -25,9 +30,12 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
     let storageRef:FIRStorageReference = FIRStorage.storage().reference()
     
     var location: Location?
+    var startDateSelected: Bool = false
+    var endDateSelected: Bool = false
     
     override func viewDidLoad() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: UIBarButtonItemStyle.plain, target: self, action: #selector(AddDealTableViewController.addDeal))
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
     func addDeal() {
@@ -72,6 +80,21 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func switchChanged(_ sender: Any) {
+        if !dateSwitch.isOn {
+            startDateSelected = false
+            endDateSelected = false
+            startDateLabel.textColor = .black
+            endDateLabel.textColor = .black
+        }
+        self.tableView.reloadData()
+    }
+    
+    @IBAction func startDateChanged(_ sender: UIDatePicker) {
+    }
+    
+    @IBAction func endDateChanged(_ sender: UIDatePicker) {
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let section = indexPath.section
@@ -88,9 +111,30 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
             }
         }
             // if the location field was selected
-        else if (section == 1 && row == 0) {
+        else if section == 1 && row == 0 {
             performSegue(withIdentifier: "restaurantSearch", sender: self)
         }
+        else if section == 2 && row == 1 {
+            startDateSelected = !startDateSelected
+            if startDateSelected {
+                startDateLabel.textColor = blueTextColor
+            }
+            else {
+                startDateLabel.textColor = .black
+            }
+            self.tableView.reloadData()
+        }
+        else if section == 2 && row == 3 {
+            endDateSelected = !endDateSelected
+            if endDateSelected {
+                endDateLabel.textColor = blueTextColor
+            }
+            else {
+                endDateLabel.textColor = .black
+            }
+            self.tableView.reloadData()
+        }
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -110,6 +154,37 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
         locationLabel.textColor = .black
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 214.0
+        }
+        if indexPath.section == 1 && indexPath.row == 2 {
+            return 71.0
+        }
+        if indexPath.section == 2 && indexPath.row == 1 && !dateSwitch.isOn {
+            return 0.0
+        }
+        if indexPath.section == 2 && indexPath.row == 3 && !dateSwitch.isOn {
+            return 0.0
+        }
+        if indexPath.section == 2 && indexPath.row == 2 {
+            if dateSwitch.isOn && startDateSelected {
+                return 216.0
+            }
+            else {
+                return 0.0
+            }
+        }
+        if indexPath.section == 2 && indexPath.row == 4 {
+            if dateSwitch.isOn && endDateSelected {
+                return 216.0
+            }
+            else {
+                return 0.0
+            }
+        }
+        return 44.0
+    }
     
     
     // MARK: - Table view data source
