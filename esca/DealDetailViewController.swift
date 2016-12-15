@@ -19,6 +19,14 @@ class DealDetailViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var feedbackButton: UIButton!
+    @IBOutlet weak var acceptedButton: UIButton!
+    @IBOutlet weak var rejectedButton: UIButton!
+    @IBAction func rejectedAction(_ sender: UIButton) {
+        // rejected deal
+    }
+    @IBAction func acceptedAction(_ sender: UIButton) {
+        // accepted deal
+    }
     @IBAction func directionsAction(_ sender: UIButton) {
         getDirections()
     }
@@ -35,6 +43,10 @@ class DealDetailViewController: UIViewController {
         navigationItem.rightBarButtonItem?.action = #selector(markFavorite)
         let attributes = [NSFontAttributeName: UIFont.fontAwesome(ofSize: 20)]
         navigationItem.rightBarButtonItem?.setTitleTextAttributes(attributes, for: .normal)
+        acceptedButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 30)
+        acceptedButton.setTitle(String.fontAwesomeIcon(name: .check), for: .normal)
+        rejectedButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 30)
+        rejectedButton.setTitle(String.fontAwesomeIcon(name: .close), for: .normal)
         
         if defaults.object(forKey: (deal?.key)!) != nil {
             navigationItem.rightBarButtonItem?.title = String.fontAwesomeIcon(name: .star)
