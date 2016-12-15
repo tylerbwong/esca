@@ -9,7 +9,9 @@
 import UIKit
 import FirebaseDatabase
 
-class FeedbackViewController: UIViewController {
+class FeedbackViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
     
     let feedbackRef = FIRDatabase.database().reference().child("feedback")
     
@@ -20,6 +22,8 @@ class FeedbackViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "Feedback"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addFeedback))
         
         // all feedback is contained in a separate node away from the deals node
         // each feedback child contains a field "dealKey" that has the deal key of the
@@ -34,12 +38,17 @@ class FeedbackViewController: UIViewController {
             self.feedback.append(tempFeedback)
             // refresh the table view of feedback objects
             // see DealViewController for reference
+            self.tableView.reloadData()
         })
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func addFeedback() {
+        // Go to add feedback
     }
     
 
@@ -52,5 +61,37 @@ class FeedbackViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: - Table view data source
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return feedback.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "feedbackCell", for: indexPath) as? FeedbackCell
+        let tempFeedback = feedback[indexPath.row]
+        cell?.userLabel.text = tempFeedback.username
+        cell?.dateTimeLabel.text = "\(tempFeedback.time!) | \(tempFeedback.date!)"
+        cell?.contentLabel.text = tempFeedback.content
+        cell?.typeLabel.font = UIFont.fontAwesome(ofSize: 30)
+        
+        if tempFeedback.approved! {
+            cell?.typeLabel.text = String.fontAwesomeIcon(name: .check)
+            cell?.typeLabel.textColor = .green
+        }
+        else {
+            cell?.typeLabel.text = String.fontAwesomeIcon(name: .close)
+            cell?.typeLabel.textColor = .red
+        }
+        
+        return cell!
+        
+    }
+
 
 }

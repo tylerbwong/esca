@@ -45,8 +45,10 @@ class DealDetailViewController: UIViewController {
         navigationItem.rightBarButtonItem?.setTitleTextAttributes(attributes, for: .normal)
         acceptedButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 30)
         acceptedButton.setTitle(String.fontAwesomeIcon(name: .check), for: .normal)
+        acceptedButton.setTitleColor(.green, for: .normal)
         rejectedButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 30)
         rejectedButton.setTitle(String.fontAwesomeIcon(name: .close), for: .normal)
+        rejectedButton.setTitleColor(.red, for: .normal)
         
         if defaults.object(forKey: (deal?.key)!) != nil {
             navigationItem.rightBarButtonItem?.title = String.fontAwesomeIcon(name: .star)

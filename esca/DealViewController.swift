@@ -138,7 +138,13 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDeal" {
             if let indexPath = dealTableView.indexPathForSelectedRow {
-                let deal = deals[indexPath.row]
+                let deal:Deal
+                if filtered.count > 0 {
+                    deal = filtered[indexPath.row]
+                }
+                else {
+                    deal = deals[indexPath.row]
+                }
                 let controller = segue.destination as! DealDetailViewController
                 controller.deal = deal
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
@@ -155,7 +161,7 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (searchActive) {
+        if searchActive {
             return filtered.count
         }
         return deals.count
@@ -165,7 +171,7 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "dealCell", for: indexPath) as? DealCell
         let curDeal:Deal
         
-        if (searchActive) {
+        if filtered.count > 0 {
             curDeal = filtered[indexPath.row]
         }
         else {
