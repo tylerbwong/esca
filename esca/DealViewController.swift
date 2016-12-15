@@ -179,10 +179,10 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         
         cell?.dealImage.kf.setImage(with: URL(string: curDeal.photoUrl!))
-        cell?.dealTitleLabel.text = curDeal.name!
+        cell?.dealTitleLabel.text = curDeal.location.name!
         cell?.dealAuthorLabel.text = "by \(curDeal.username!)"
         cell?.dealDateLabel.text = curDeal.startDate!
-        cell?.dealDescriptionLabel.text = curDeal.description!
+        cell?.dealDescriptionLabel.text = curDeal.name!
         
         if curDeal.percentage != "nan%" {
             cell?.dealPercentLabel.text = curDeal.percentage;

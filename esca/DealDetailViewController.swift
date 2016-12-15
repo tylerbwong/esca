@@ -71,7 +71,7 @@ class DealDetailViewController: UIViewController {
             }
             
             descriptionLabel.text = deal.description
-            addressLabel.text = deal.location.address
+            addressLabel.text = "\(deal.location.name!)\n\(deal.location.address!)"
             feedbackButton.setTitle("Feedback (\(deal.feedbackCount!))", for: .normal)
             feedbackButton.contentHorizontalAlignment = .left
         }
