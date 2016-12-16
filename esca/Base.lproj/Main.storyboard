@@ -1233,8 +1233,8 @@
         <image name="AppPhotoImage" width="1800" height="2031"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qnI-kC-RAg"/>
-        <segue reference="FJk-rg-vuc"/>
-        <segue reference="q8h-zA-Pt8"/>
+        <segue reference="be0-Wa-Ifr"/>
+        <segue reference="R0e-Fc-CtS"/>
+        <segue reference="vHP-A9-lvi"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -22,6 +22,7 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var deals: [Deal] = []
     var filtered: [Deal] = []
     var searchActive: Bool = false
+    var deal: Deal?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,7 +104,11 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDeal" {
-            if let indexPath = dealTableView.indexPathForSelectedRow {
+            if let deal = self.deal {
+                let controller = segue.destination as! DealDetailViewController
+                controller.deal = deal
+            }
+            else if let indexPath = dealTableView.indexPathForSelectedRow {
                 let deal:Deal
                 if filtered.count > 0 {
                     deal = filtered[indexPath.row]

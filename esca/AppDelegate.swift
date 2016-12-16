@@ -83,10 +83,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let detailViewController = storyboard.instantiateViewController(withIdentifier: "DealDetail") as! DealDetailViewController
-        detailViewController.deal = currentDeal
-        
-        let initialViewController = UINavigationController(rootViewController: detailViewController)
+        let dealViewController = storyboard.instantiateViewController(withIdentifier: "DealViewController") as! DealViewController
+        dealViewController.deal = currentDeal
+        let initialViewController = UINavigationController(rootViewController: dealViewController)
+        dealViewController.performSegue(withIdentifier: "showDeal", sender: initialViewController)
         
         self.window?.rootViewController = initialViewController
         
