@@ -71,10 +71,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     func indexOfDeal(snapshot: FIRDataSnapshot) -> Int {
         var index = 0
-        let postDict = snapshot.value as? [String : AnyObject] ?? [:]
         
         for annotation in self.annotations {
-            if (postDict["location"]?["latitude"] as? Double == annotation.coordinate.latitude && postDict["location"]?["longitude"] as? Double == annotation.coordinate.longitude && postDict["location"]?["name"] as? String == annotation.deal && postDict["name"] as? String == annotation.dealDescription) {
+            if (snapshot.key == annotation.dealObj.key) {
                 return index
             }
             index += 1

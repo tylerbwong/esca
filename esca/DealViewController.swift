@@ -34,12 +34,6 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
         dealsRef.observe(.childAdded, with: {(snapshot) in
             let tempDeal = Deal.toDeal(from: snapshot)
             
-            
-            if self.defaults.object(forKey: snapshot.key) != nil {
-                // User has starred this deal on their device
-                // Set geofence for this deal
-            }
-            
             self.deals.append(tempDeal)
             self.dealTableView.reloadData()
         })
@@ -51,16 +45,23 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.dealTableView.reloadData()
         })
         
+        dealsRef.observe(.childChanged, with: {(snapshot) in
+            let index = self.indexOfDeal(snapshot: snapshot)
+            let tempDeal = Deal.toDeal(from: snapshot)
+            self.deals[index] = tempDeal
+            
+            self.dealTableView.reloadData()
+        })
+        
         // Implemented Geofencing! Use LocationTest.gpx when mocking location (close app when preforming test)
         startMonitoring(coordinate: CLLocationCoordinate2D(latitude: 37.331695, longitude: -122.0322801), radius: 1000, identifier: "There's a new deal nearby")
     }
     
     func indexOfDeal(snapshot: FIRDataSnapshot) -> Int {
         var index = 0
-        let dealDict = snapshot.value as? [String : AnyObject] ?? [:]
         
         for deal in self.deals {
-            if (dealDict["photoUrl"] as? String == deal.photoUrl) {
+            if (snapshot.key == deal.key) {
                 return index
             }
             index += 1
