@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -304,6 +304,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="hUk-Ok-YA3" id="i2i-8k-iyd"/>
+                        <segue destination="dzP-Cz-L7m" kind="show" identifier="addFeedbackFromList" id="FJk-rg-vuc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8B1-m0-DaY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1232,8 +1233,8 @@
         <image name="AppPhotoImage" width="1800" height="2031"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="q8h-zA-Pt8"/>
-        <segue reference="vHP-A9-lvi"/>
         <segue reference="qnI-kC-RAg"/>
+        <segue reference="FJk-rg-vuc"/>
+        <segue reference="q8h-zA-Pt8"/>
     </inferredMetricsTieBreakers>
 </document>
