@@ -126,7 +126,7 @@
                                     <action selector="directionsAction:" destination="FXm-eP-waN" eventType="touchUpInside" id="9bM-Jq-WMu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLR-yf-KMf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLR-yf-KMf">
                                 <rect key="frame" x="16" y="515" width="359" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="M9M-GL-Dvl"/>
@@ -138,7 +138,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yQ-cz-cHt">
                                 <rect key="frame" x="215" y="589" width="80" height="30"/>
                                 <connections>
-                                    <action selector="rejectedAction:" destination="FXm-eP-waN" eventType="touchUpInside" id="CON-uU-cGi"/>
                                     <segue destination="dzP-Cz-L7m" kind="show" identifier="negativeFeedback" id="vHP-A9-lvi"/>
                                 </connections>
                             </button>
@@ -148,7 +147,6 @@
                                     <constraint firstAttribute="width" constant="80" id="U71-rF-lMJ"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="acceptedAction:" destination="FXm-eP-waN" eventType="touchUpInside" id="679-Ir-rWp"/>
                                     <segue destination="dzP-Cz-L7m" kind="show" identifier="positiveFeedback" id="haW-GW-Mpl"/>
                                 </connections>
                             </button>

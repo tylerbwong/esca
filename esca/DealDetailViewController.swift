@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import Kingfisher
 import FontAwesome_swift
+import FirebaseDatabase
 
 class DealDetailViewController: UIViewController {
     @IBOutlet weak var dealImageView: UIImageView!
@@ -21,12 +22,9 @@ class DealDetailViewController: UIViewController {
     @IBOutlet weak var feedbackButton: UIButton!
     @IBOutlet weak var acceptedButton: UIButton!
     @IBOutlet weak var rejectedButton: UIButton!
-    @IBAction func rejectedAction(_ sender: UIButton) {
-        // rejected deal
-    }
-    @IBAction func acceptedAction(_ sender: UIButton) {
-        // accepted deal
-    }
+    
+    let dealRef:FIRDatabaseReference = FIRDatabase.database().reference().child("deals")
+    
     @IBAction func directionsAction(_ sender: UIButton) {
         getDirections()
     }
@@ -58,22 +56,43 @@ class DealDetailViewController: UIViewController {
         }
         
         if let deal = self.deal {
+            dealRef.child(deal.key).observe(.value, with: { (snapshot) in
+                let deal = Deal.toDeal(from: snapshot)
+                self.dealTitleLabel.text = deal.name
+                self.title = deal.name
+                self.authorLabel.text = "by \(deal.username!)"
+                
+                if deal.percentage != "nan%" {
+                    self.percentLabel.text = deal.percentage;
+                }
+                else {
+                    self.percentLabel.text = "0%"
+                }
+                
+                self.descriptionLabel.text = deal.description
+                self.addressLabel.text = "\(deal.location.name!)\n\(deal.location.address!)"
+                self.feedbackButton.setTitle("Feedback (\(deal.feedbackCount!))", for: .normal)
+            })
+        }
+        
+        
+        
+        if let deal = self.deal {
             dealImageView.kf.setImage(with: URL(string: deal.photoUrl!))
-            dealTitleLabel.text = deal.name
-            self.title = deal.name
-            authorLabel.text = "by \(deal.username!)"
-            
-            if deal.percentage != "nan%" {
-                percentLabel.text = deal.percentage;
-            }
-            else {
-                percentLabel.text = "0%"
-            }
-            
-            descriptionLabel.text = deal.description
-            addressLabel.text = "\(deal.location.name!)\n\(deal.location.address!)"
-            feedbackButton.setTitle("Feedback (\(deal.feedbackCount!))", for: .normal)
-            feedbackButton.contentHorizontalAlignment = .left
+//            dealTitleLabel.text = deal.name
+//            self.title = deal.name
+//            authorLabel.text = "by \(deal.username!)"
+//            
+//            if deal.percentage != "nan%" {
+//                percentLabel.text = deal.percentage;
+//            }
+//            else {
+//                percentLabel.text = "0%"
+//            }
+//            
+//            descriptionLabel.text = deal.description
+//            addressLabel.text = "\(deal.location.name!)\n\(deal.location.address!)"
+//            feedbackButton.setTitle("Feedback (\(deal.feedbackCount!))", for: .normal)
         }
     }
     

@@ -57,7 +57,23 @@ class AddFeedbackViewController: UIViewController {
             dateFormatter.dateFormat = "MM/d/YY"
             timeFormatter.dateFormat = "h:mm a"
             newFeedback.setValue(["approved": positiveFeedback, "content": feedbackText, "date": dateFormatter.string(from: Date()), "dealKey": dealKey, "time": timeFormatter.string(from: Date()), "username": auth.currentUser!.displayName!])
-            _ = self.navigationController?.popViewController(animated: true)
+            let dealRef = FIRDatabase.database().reference().child("deals").child(dealKey)
+            dealRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                let value = snapshot.value as? NSDictionary
+                let feedbackCount = value?["feedbackCount"] as? NSNumber
+                var feedbackType: String?
+                var typeCount: NSNumber?
+                if self.positiveFeedback {
+                    feedbackType = "accepted"
+                    typeCount = value?["accepted"] as? NSNumber
+                }
+                else {
+                    feedbackType = "rejected"
+                    typeCount = value?["rejected"] as? NSNumber
+                }
+                dealRef.updateChildValues(["feedbackCount": (feedbackCount?.intValue)! + 1, feedbackType!: (typeCount?.intValue)! + 1])
+                _ = self.navigationController?.popViewController(animated: true)
+            })
         }
     }
 
