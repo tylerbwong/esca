@@ -12,7 +12,6 @@ enum Action {
     case add
     case accept
     case reject
-    case feedback
     
     var description: String {
         switch self {
@@ -22,8 +21,6 @@ enum Action {
             return "accept"
         case .reject:
             return "reject"
-        case .feedback:
-            return "feedback"
         }
     }
 }
@@ -51,8 +48,6 @@ class Activity {
             template = "\(username) approved \(targetUser)'s deal"
         case .reject:
             template = "\(username) rejected \(targetUser)'s deal"
-        case .feedback:
-            template = "\(username) added feedback for \(targetUser)'s deal"
         }
         
         return template

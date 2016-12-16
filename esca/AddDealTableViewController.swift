@@ -31,6 +31,7 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
     
     let dealsRef:FIRDatabaseReference = FIRDatabase.database().reference().child("deals")
     let activityRef:FIRDatabaseReference = FIRDatabase.database().reference().child("activity")
+    let scoresRef:FIRDatabaseReference = FIRDatabase.database().reference().child("scores")
     let storageRef:FIRStorageReference = FIRStorage.storage().reference()
     
     var location: Location?
@@ -102,6 +103,15 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
                                           "date": dateString,
                                           "time": time])
                     
+                    self.scoresRef.child(auth.currentUser!.displayName!).observeSingleEvent(of: .value, with: { snapshot in
+                        if snapshot.hasChild("deals") {
+                            let scoresDict = snapshot.value as! [String : AnyObject]
+                            self.scoresRef.child(auth.currentUser!.displayName!).child("deals").setValue(scoresDict["deals"] as! Int + 1)
+                        }
+                        else {
+                            self.scoresRef.child(auth.currentUser!.displayName!).child("deals").setValue(1)
+                        }
+                    })
                 }
                 self.mainQueue.addOperation {
                     _ = self.navigationController?.popViewController(animated: true)

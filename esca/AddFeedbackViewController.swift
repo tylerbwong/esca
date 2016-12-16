@@ -17,6 +17,8 @@ class AddFeedbackViewController: UIViewController {
     var positiveFeedback = true
     var dealKey: String?
     let feedbackRef:FIRDatabaseReference = FIRDatabase.database().reference().child("feedback")
+    let activityRef:FIRDatabaseReference = FIRDatabase.database().reference().child("activity")
+    let scoresRef:FIRDatabaseReference = FIRDatabase.database().reference().child("scores")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,13 +53,57 @@ class AddFeedbackViewController: UIViewController {
     func addFeedback() {
         if let auth = FIRAuth.auth(), let dealKey = self.dealKey {
             let newFeedback:FIRDatabaseReference = feedbackRef.childByAutoId()
+            let newActivity:FIRDatabaseReference = activityRef.childByAutoId()
             let feedbackText = feedbackField.text ?? ""
             let dateFormatter = DateFormatter()
             let timeFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM/d/YY"
             timeFormatter.dateFormat = "h:mm a"
-            newFeedback.setValue(["approved": positiveFeedback, "content": feedbackText, "date": dateFormatter.string(from: Date()), "dealKey": dealKey, "time": timeFormatter.string(from: Date()), "username": auth.currentUser!.displayName!])
-            _ = self.navigationController?.popViewController(animated: true)
+            let date = dateFormatter.string(from: Date())
+            let time = timeFormatter.string(from: Date())
+            newFeedback.setValue(["approved": positiveFeedback, "content": feedbackText, "date": date, "dealKey": dealKey, "time": time, "username": auth.currentUser!.displayName!])
+            let dealRef = FIRDatabase.database().reference().child("deals").child(dealKey)
+            dealRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                let value = snapshot.value as? NSDictionary
+                let feedbackCount = value?["feedbackCount"] as? NSNumber
+                var feedbackType: String?
+                var typeCount: NSNumber?
+                if self.positiveFeedback {
+                    feedbackType = "accepted"
+                    typeCount = value?["accepted"] as? NSNumber
+                }
+                else {
+                    feedbackType = "rejected"
+                    typeCount = value?["rejected"] as? NSNumber
+                }
+                dealRef.updateChildValues(["feedbackCount": (feedbackCount?.intValue)! + 1, feedbackType!: (typeCount?.intValue)! + 1])
+                _ = self.navigationController?.popViewController(animated: true)
+            })
+            
+            var actionType:Action
+            
+            if self.positiveFeedback {
+                actionType = .accept
+            }
+            else {
+                actionType = .reject
+            }
+            
+            newActivity.setValue(["action": actionType.description,
+                                  "dealKey": dealKey,
+                                  "username": auth.currentUser!.displayName!,
+                                  "date": date,
+                                  "time": time])
+            
+            scoresRef.child(auth.currentUser!.displayName!).observeSingleEvent(of: .value, with: { snapshot in
+                if snapshot.hasChild("feedback") {
+                    let scoresDict = snapshot.value as! [String : AnyObject]
+                    self.scoresRef.child(auth.currentUser!.displayName!).child("feedback").setValue(scoresDict["feedback"] as! Int + 1)
+                }
+                else {
+                    self.scoresRef.child(auth.currentUser!.displayName!).child("feedback").setValue(1)
+                }
+            })
         }
     }
 
