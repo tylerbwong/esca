@@ -42,16 +42,23 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         map.userTrackingMode = .follow
         
         dealsRef.observe(.childAdded, with: {(snapshot) in
-            let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+            let dealDict = snapshot.value as? [String : AnyObject] ?? [:]
+            var tempDeal: Deal
+            
+            tempDeal = Deal(snapshot.key, dealDict["name"] as! String, dealDict["description"] as! String, dealDict["startDate"] as! String, dealDict["endDate"] as! String, dealDict["photoUrl"] as! String, Location(dealDict["location"]?["name"] as! String, dealDict["location"]?["address"] as! String, dealDict["location"]?["latitude"] as! Double, dealDict["location"]?["longitude"] as! Double), dealDict["username"] as! String)
+            tempDeal.feedbackCount = dealDict["feedbackCount"] as? Int
+            tempDeal.accepted = dealDict["accepted"] as? Int
+            tempDeal.rejected = dealDict["rejected"] as? Int
 
-            let coordinates = CLLocationCoordinate2DMake(postDict["location"]?["latitude"] as! Double, postDict["location"]?["longitude"] as! Double)
-            let photoUrl:String = postDict["photoUrl"] as! String
+            let coordinates = CLLocationCoordinate2DMake(dealDict["location"]?["latitude"] as! Double, dealDict["location"]?["longitude"] as! Double)
+            let photoUrl:String = tempDeal.photoUrl!
             
             let point = DealAnnotation(coordinate: coordinates)
-            point.deal = postDict["name"] as? String
-            point.dealDescription = postDict["description"] as? String
-            point.restaurant = postDict["location"]?["name"] as? String
+            point.deal = tempDeal.name
+            point.dealDescription = tempDeal.description
+            point.restaurant = dealDict["location"]?["name"] as? String
             point.image = photoUrl
+            point.dealObj = tempDeal
             
             self.annotations.append(point)
             self.map.addAnnotation(point)
@@ -76,6 +83,19 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         return -1
     }
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if annotation is MKUserLocation
+        {
+            return nil
+        }
+        var annotationView = self.map.dequeueReusableAnnotationView(withIdentifier: "Pin")
+        annotationView = AnnotationView(annotation: annotation, reuseIdentifier: "Pin")
+        annotationView?.canShowCallout = false
+        annotationView?.image = UIImage(named: "icon.png")
+        return annotationView
+    }
+    
     func mapView(_ mapView: MKMapView,
                  didSelect view: MKAnnotationView)
     {
@@ -92,20 +112,22 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         calloutView.DealLabel.text = dealAnnotation.deal
         calloutView.DescLabel.text = dealAnnotation.dealDescription
         calloutView.RestLabel.text = dealAnnotation.restaurant
+        calloutView.deal = dealAnnotation.dealObj
         
         // TODO: Keep for future reference to have the pin be clickable to the deal
-        // let button = UIButton(frame: calloutView.RestLabel.frame)
-        // button.addTarget(self, action: #selector(ViewController.toDealViewController(sender:)), for: .touchUpInside)
-        // calloutView.addSubview(button)
+         let button = UIButton(frame: calloutView.RestLabel.frame)
+         button.addTarget(self, action: #selector(toDealViewController(sender:)), for: .touchUpInside)
+         calloutView.addSubview(button)
         calloutView.RestImage.kf.setImage(with: URL(string: dealAnnotation.image))
         // 3
         calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.52)
         view.addSubview(calloutView)
-        map.setCenter((view.annotation?.coordinate)!, animated: true)
+       // map.setCenter((view.annotation?.coordinate)!, animated: true)
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        if view.isKind(of: DealAnnotationView.self)
+        if view.isKind(of: AnnotationView.self)
+        //    if view.isKind(of: DealAnnotationView.self)
         {
             for subview in view.subviews
             {
@@ -127,5 +149,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
         
         map.setRegion(region, animated: true)
+    }
+    
+    func toDealViewController(sender: UIButton){
+        let dealAnnotation = sender.superview as! DealAnnotationView
+        let dealViewController = self.storyboard?.instantiateViewController(withIdentifier: "DealDetail") as? DealDetailViewController
+        dealViewController?.deal = dealAnnotation.deal
+        self.navigationController?.pushViewController(dealViewController!, animated: true)
+
+        
     }
 }
