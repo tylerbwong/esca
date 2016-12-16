@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 class Deal {
     var key:String!
@@ -43,5 +44,16 @@ class Deal {
         self.photoUrl = photoUrl
         self.location = location
         self.username = username
+    }
+    
+    static func toDeal(from snapshot: FIRDataSnapshot) -> Deal {
+        let dealDict = snapshot.value as! [String : AnyObject]
+        var deal: Deal
+        
+        deal = Deal(snapshot.key, dealDict["name"] as! String, dealDict["description"] as! String, dealDict["startDate"] as! String, dealDict["endDate"] as! String, dealDict["photoUrl"] as! String, Location(dealDict["location"]?["name"] as! String, dealDict["location"]?["address"] as! String, dealDict["location"]?["latitude"] as! Double, dealDict["location"]?["longitude"] as! Double), dealDict["username"] as! String)
+        deal.feedbackCount = dealDict["feedbackCount"] as? Int
+        deal.accepted = dealDict["accepted"] as? Int
+        deal.rejected = dealDict["rejected"] as? Int
+        return deal
     }
 }
