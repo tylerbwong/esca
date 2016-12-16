@@ -36,6 +36,7 @@
 		70CA45651DF4CD850099F097 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70CA45641DF4CD850099F097 /* CoreLocation.framework */; };
 		E322A0671DF5F2DA00081FCD /* RestaurantSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E322A0661DF5F2DA00081FCD /* RestaurantSearchTableViewController.swift */; };
 		E322A0691DF5F55E00081FCD /* RestaurantSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E322A0681DF5F55E00081FCD /* RestaurantSearchTableViewCell.swift */; };
+		E38C5F091E036E9E000674B6 /* AddFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38C5F081E036E9E000674B6 /* AddFeedbackViewController.swift */; };
 		E3A702351DF4003800A26C9D /* AddDealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A702341DF4003800A26C9D /* AddDealTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		E322A0661DF5F2DA00081FCD /* RestaurantSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantSearchTableViewController.swift; sourceTree = "<group>"; };
 		E322A0681DF5F55E00081FCD /* RestaurantSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantSearchTableViewCell.swift; sourceTree = "<group>"; };
 		E35AEA421DF553CE0099097E /* LocationTest.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LocationTest.gpx; sourceTree = "<group>"; };
+		E38C5F081E036E9E000674B6 /* AddFeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFeedbackViewController.swift; sourceTree = "<group>"; };
 		E3A702341DF4003800A26C9D /* AddDealTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDealTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +147,7 @@
 				15F1EC961DFC92B100B5EBDF /* DealDetailViewController.swift */,
 				15D610E51E023E6400530130 /* FeedbackViewController.swift */,
 				1566D1A01E034D4C00C607CE /* FeedbackCell.swift */,
+				E38C5F081E036E9E000674B6 /* AddFeedbackViewController.swift */,
 			);
 			path = esca;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				1566D1A11E034D4C00C607CE /* FeedbackCell.swift in Sources */,
 				15F1EC971DFC92B100B5EBDF /* DealDetailViewController.swift in Sources */,
 				156FE85D1DC5558200E75CF8 /* AppDelegate.swift in Sources */,
+				E38C5F091E036E9E000674B6 /* AddFeedbackViewController.swift in Sources */,
 				15ED2AA71DE51B4900A7A018 /* SideMenuViewController.swift in Sources */,
 				159CCF951DF545770074A032 /* Location.swift in Sources */,
 				70C3B9C61E036B8E0014C3F7 /* AnnotationView.swift in Sources */,
