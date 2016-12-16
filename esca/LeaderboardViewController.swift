@@ -26,25 +26,24 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Leaderboards"
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Menu", style: UIBarButtonItemStyle.plain, target: self, action: #selector(LeaderboardViewController.showMenu))
-        
-        // Do any additional setup after loading the view, typically from a nib.
+
         dealsRef.observe(.childAdded, with: {(snapshot) in
             let scoreDict = snapshot.value as! [String : AnyObject]
             let name: String = snapshot.key
-            let deals: Int = scoreDict["deals"] as! Int
-            let submittedScore: LeaderBoard = LeaderBoard(name: name, score: deals)
-            let feedback: Int = scoreDict["feedback"] as! Int
-            let feedbackScore: LeaderBoard = LeaderBoard(name: name, score: feedback)
+            if let deals = scoreDict["deals"] as? Int {
+                let submittedScore: LeaderBoard = LeaderBoard(name: name, score: deals)
+                self.submittedArr.append(submittedScore)
+            }
             
-            self.submittedArr.append(submittedScore)
-            self.feedbackArr.append(feedbackScore)
+            if let feedback = scoreDict["feedback"] as? Int {
+                let feedbackScore: LeaderBoard = LeaderBoard(name: name, score: feedback)
+                self.feedbackArr.append(feedbackScore)
+            }
+            
             self.leaderBoardTable.reloadData()
-            
         })
-
-        
     }
     
     func showMenu() {
