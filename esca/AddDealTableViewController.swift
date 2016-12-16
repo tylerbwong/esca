@@ -97,7 +97,7 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
                                       "feedbackCount": 0,
                                       "username": auth.currentUser!.displayName!,
                                       "photoUrl": photoUrl])
-                    newActivity.setValue(["action": Action.add.description,
+                    newActivity.setValue(["action": Action.add,
                                           "dealKey": newDeal.key,
                                           "username": auth.currentUser!.displayName!,
                                           "date": dateString,

@@ -35,7 +35,7 @@ class FeedbackViewController: UIViewController, UITableViewDelegate, UITableView
             var tempFeedback: Feedback
             
             tempFeedback = Feedback(snapshot.key, feedbackDict["approved"] as! Bool, feedbackDict["content"] as! String, feedbackDict["username"] as! String, feedbackDict["date"] as! String, feedbackDict["time"] as! String)
-            self.feedback.append(tempFeedback)
+            self.feedback.insert(tempFeedback, at: 0)
             // refresh the table view of feedback objects
             // see DealViewController for reference
             self.tableView.reloadData()

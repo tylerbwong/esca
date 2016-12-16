@@ -22,6 +22,8 @@
 		15C6153D1DE4FAB200CFF3F0 /* DealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C6153C1DE4FAB200CFF3F0 /* DealCell.swift */; };
 		15D610E61E023E6400530130 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D610E51E023E6400530130 /* FeedbackViewController.swift */; };
 		15E928521DDAD5570088585F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15E928511DDAD5570088585F /* GoogleService-Info.plist */; };
+		15EAAF7C1E04097D00E425C9 /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EAAF7B1E04097D00E425C9 /* ActivityCell.swift */; };
+		15EAAF7E1E0409F000E425C9 /* ActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EAAF7D1E0409F000E425C9 /* ActivityTableViewController.swift */; };
 		15ED2AA71DE51B4900A7A018 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ED2AA61DE51B4900A7A018 /* SideMenuViewController.swift */; };
 		15F1EC971DFC92B100B5EBDF /* DealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F1EC961DFC92B100B5EBDF /* DealDetailViewController.swift */; };
 		15FA2AE71DE445EF00FF5590 /* DealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FA2AE61DE445EF00FF5590 /* DealViewController.swift */; };
@@ -63,6 +65,8 @@
 		15D610E51E023E6400530130 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		15E928511DDAD5570088585F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		15E928541DDAE9070088585F /* esca.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = esca.entitlements; sourceTree = "<group>"; };
+		15EAAF7B1E04097D00E425C9 /* ActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
+		15EAAF7D1E0409F000E425C9 /* ActivityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTableViewController.swift; sourceTree = "<group>"; };
 		15ED2AA61DE51B4900A7A018 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		15F1EC961DFC92B100B5EBDF /* DealDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealDetailViewController.swift; sourceTree = "<group>"; };
 		15FA2AE61DE445EF00FF5590 /* DealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 				1566D1A01E034D4C00C607CE /* FeedbackCell.swift */,
 				E38C5F081E036E9E000674B6 /* AddFeedbackViewController.swift */,
 				1566D1A21E036FD200C607CE /* Activity.swift */,
+				15EAAF7B1E04097D00E425C9 /* ActivityCell.swift */,
+				15EAAF7D1E0409F000E425C9 /* ActivityTableViewController.swift */,
 			);
 			path = esca;
 			sourceTree = "<group>";
@@ -338,12 +344,14 @@
 				709812C01DF66D3900F82CC1 /* DealAnnotationView.swift in Sources */,
 				1566D1A11E034D4C00C607CE /* FeedbackCell.swift in Sources */,
 				15F1EC971DFC92B100B5EBDF /* DealDetailViewController.swift in Sources */,
+				15EAAF7C1E04097D00E425C9 /* ActivityCell.swift in Sources */,
 				156FE85D1DC5558200E75CF8 /* AppDelegate.swift in Sources */,
 				E38C5F091E036E9E000674B6 /* AddFeedbackViewController.swift in Sources */,
 				15ED2AA71DE51B4900A7A018 /* SideMenuViewController.swift in Sources */,
 				159CCF951DF545770074A032 /* Location.swift in Sources */,
 				70C3B9C61E036B8E0014C3F7 /* AnnotationView.swift in Sources */,
 				E322A0671DF5F2DA00081FCD /* RestaurantSearchTableViewController.swift in Sources */,
+				15EAAF7E1E0409F000E425C9 /* ActivityTableViewController.swift in Sources */,
 				15FA2AE71DE445EF00FF5590 /* DealViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

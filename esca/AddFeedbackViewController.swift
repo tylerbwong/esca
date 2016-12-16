@@ -89,7 +89,7 @@ class AddFeedbackViewController: UIViewController {
                 actionType = .reject
             }
             
-            newActivity.setValue(["action": actionType.description,
+            newActivity.setValue(["action": actionType.rawValue,
                                   "dealKey": dealKey,
                                   "username": auth.currentUser!.displayName!,
                                   "date": date,

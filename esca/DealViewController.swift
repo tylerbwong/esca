@@ -34,7 +34,7 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
         dealsRef.observe(.childAdded, with: {(snapshot) in
             let tempDeal = Deal.toDeal(from: snapshot)
             
-            self.deals.append(tempDeal)
+            self.deals.insert(tempDeal, at: 0)
             self.dealTableView.reloadData()
         })
         
