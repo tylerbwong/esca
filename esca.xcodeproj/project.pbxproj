@@ -34,6 +34,9 @@
 		70CA45611DF4CC4F0099F097 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CA45601DF4CC4F0099F097 /* MapViewController.swift */; };
 		70CA45631DF4CD660099F097 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70CA45621DF4CD660099F097 /* MapKit.framework */; };
 		70CA45651DF4CD850099F097 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70CA45641DF4CD850099F097 /* CoreLocation.framework */; };
+		70F4CD051E03E35C00137B46 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F4CD041E03E35C00137B46 /* LeaderboardViewController.swift */; };
+		70F4CD071E03E86300137B46 /* LeaderBoardTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F4CD061E03E86300137B46 /* LeaderBoardTVC.swift */; };
+		70F4CD091E03E9F500137B46 /* LeaderBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F4CD081E03E9F500137B46 /* LeaderBoard.swift */; };
 		E322A0671DF5F2DA00081FCD /* RestaurantSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E322A0661DF5F2DA00081FCD /* RestaurantSearchTableViewController.swift */; };
 		E322A0691DF5F55E00081FCD /* RestaurantSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E322A0681DF5F55E00081FCD /* RestaurantSearchTableViewCell.swift */; };
 		E38C5F091E036E9E000674B6 /* AddFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38C5F081E036E9E000674B6 /* AddFeedbackViewController.swift */; };
@@ -73,6 +76,9 @@
 		70CA45601DF4CC4F0099F097 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		70CA45621DF4CD660099F097 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		70CA45641DF4CD850099F097 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		70F4CD041E03E35C00137B46 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		70F4CD061E03E86300137B46 /* LeaderBoardTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoardTVC.swift; sourceTree = "<group>"; };
+		70F4CD081E03E9F500137B46 /* LeaderBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoard.swift; sourceTree = "<group>"; };
 		9206441FECD05903EB752098 /* Pods-esca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esca.release.xcconfig"; path = "Pods/Target Support Files/Pods-esca/Pods-esca.release.xcconfig"; sourceTree = "<group>"; };
 		E322A0661DF5F2DA00081FCD /* RestaurantSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantSearchTableViewController.swift; sourceTree = "<group>"; };
 		E322A0681DF5F55E00081FCD /* RestaurantSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantSearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -123,6 +129,9 @@
 				156FE85C1DC5558200E75CF8 /* AppDelegate.swift */,
 				156FE85E1DC5558200E75CF8 /* LoginViewController.swift */,
 				156FE8601DC5558200E75CF8 /* Main.storyboard */,
+				70F4CD041E03E35C00137B46 /* LeaderboardViewController.swift */,
+				70F4CD081E03E9F500137B46 /* LeaderBoard.swift */,
+				70F4CD061E03E86300137B46 /* LeaderBoardTVC.swift */,
 				156FE8631DC5558200E75CF8 /* Assets.xcassets */,
 				156FE8651DC5558200E75CF8 /* LaunchScreen.storyboard */,
 				156FE8681DC5558200E75CF8 /* Info.plist */,
@@ -313,6 +322,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				709812C21DF66DA000F82CC1 /* DealAnnotation.swift in Sources */,
+				70F4CD091E03E9F500137B46 /* LeaderBoard.swift in Sources */,
+				70F4CD071E03E86300137B46 /* LeaderBoardTVC.swift in Sources */,
 				E3A702351DF4003800A26C9D /* AddDealTableViewController.swift in Sources */,
 				154ED8CF1DDFC9C600B9A71B /* User.swift in Sources */,
 				154ED8D31DDFCFBB00B9A71B /* Feedback.swift in Sources */,
@@ -320,6 +331,7 @@
 				154ED8D11DDFCEB300B9A71B /* Deal.swift in Sources */,
 				15D610E61E023E6400530130 /* FeedbackViewController.swift in Sources */,
 				156FE85F1DC5558200E75CF8 /* LoginViewController.swift in Sources */,
+				70F4CD051E03E35C00137B46 /* LeaderboardViewController.swift in Sources */,
 				70CA45611DF4CC4F0099F097 /* MapViewController.swift in Sources */,
 				1566D1A31E036FD200C607CE /* Activity.swift in Sources */,
 				15C6153D1DE4FAB200CFF3F0 /* DealCell.swift in Sources */,
