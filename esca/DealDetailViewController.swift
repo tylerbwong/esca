@@ -101,6 +101,16 @@ class DealDetailViewController: UIViewController {
             controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
             controller.navigationItem.leftItemsSupplementBackButton = true
         }
+        if segue.identifier == "positiveFeedback" {
+            let controller = segue.destination as! AddFeedbackViewController
+            controller.dealKey = deal?.key
+            controller.positiveFeedback = true
+        }
+        if segue.identifier == "negativeFeedback" {
+            let controller = segue.destination as! AddFeedbackViewController
+            controller.dealKey = deal?.key
+            controller.positiveFeedback = false
+        }
     }
     
     func getDirections() {

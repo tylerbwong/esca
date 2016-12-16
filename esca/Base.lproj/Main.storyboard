@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -139,6 +139,7 @@
                                 <rect key="frame" x="215" y="589" width="80" height="30"/>
                                 <connections>
                                     <action selector="rejectedAction:" destination="FXm-eP-waN" eventType="touchUpInside" id="CON-uU-cGi"/>
+                                    <segue destination="dzP-Cz-L7m" kind="show" identifier="negativeFeedback" id="vHP-A9-lvi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mkm-52-ga7">
@@ -148,6 +149,7 @@
                                 </constraints>
                                 <connections>
                                     <action selector="acceptedAction:" destination="FXm-eP-waN" eventType="touchUpInside" id="679-Ir-rWp"/>
+                                    <segue destination="dzP-Cz-L7m" kind="show" identifier="positiveFeedback" id="haW-GW-Mpl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -309,6 +311,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8B1-m0-DaY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-594.39999999999998" y="732.68365817091455"/>
+        </scene>
+        <!--Add Feedback View Controller-->
+        <scene sceneID="GtT-e7-c9V">
+            <objects>
+                <viewController id="dzP-Cz-L7m" customClass="AddFeedbackViewController" customModule="esca" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nc5-R7-x3F"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Gl-dA-S4w"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="91X-t8-riB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Feedback (Optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QfR-sU-3bA">
+                                <rect key="frame" x="26" y="135" width="322" height="512"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.31" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVE-Mx-LVs">
+                                <rect key="frame" x="137" y="42" width="101" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="101" id="N2f-KV-av4"/>
+                                    <constraint firstAttribute="height" constant="68" id="PRC-86-Mv6"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="onClickTypeButton:" destination="dzP-Cz-L7m" eventType="touchUpInside" id="oVU-I5-GFC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QfR-sU-3bA" firstAttribute="top" secondItem="TVE-Mx-LVs" secondAttribute="bottom" constant="25" id="6fv-eh-uhY"/>
+                            <constraint firstItem="TVE-Mx-LVs" firstAttribute="top" secondItem="Nc5-R7-x3F" secondAttribute="bottom" constant="22" id="Q0e-lk-N8H"/>
+                            <constraint firstItem="TVE-Mx-LVs" firstAttribute="centerX" secondItem="QfR-sU-3bA" secondAttribute="centerX" id="Sm7-wY-hts"/>
+                            <constraint firstAttribute="bottom" secondItem="QfR-sU-3bA" secondAttribute="bottom" constant="20" symbolic="YES" id="VCi-Dt-xgy"/>
+                            <constraint firstItem="QfR-sU-3bA" firstAttribute="leading" secondItem="91X-t8-riB" secondAttribute="leadingMargin" constant="10" id="k34-eY-3Iz"/>
+                            <constraint firstItem="QfR-sU-3bA" firstAttribute="centerX" secondItem="91X-t8-riB" secondAttribute="centerX" id="wHN-yw-Gjb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="feedbackField" destination="QfR-sU-3bA" id="XHk-Lp-0f3"/>
+                        <outlet property="feedbackTypeButton" destination="TVE-Mx-LVs" id="dkZ-dk-11v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fp7-bs-dER" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1479.2" y="1503.5982008995504"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qkT-4k-COd">
@@ -558,7 +610,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="90o-9l-H6Z">
-                                                    <rect key="frame" x="0.0" y="-1" width="375" height="216"/>
+                                                    <rect key="frame" x="-1" y="-1" width="375" height="216"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="503480439.60496998">
                                                         <!--2016-12-15 07:40:39 +0000-->
@@ -612,7 +664,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="U9K-7W-HwW">
-                                                    <rect key="frame" x="0.0" y="-1" width="375" height="216"/>
+                                                    <rect key="frame" x="-1" y="-1" width="375" height="216"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="503480439.60496998">
                                                         <!--2016-12-15 07:40:39 +0000-->
@@ -1067,5 +1119,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="R0e-Fc-CtS"/>
+        <segue reference="vHP-A9-lvi"/>
     </inferredMetricsTieBreakers>
 </document>
