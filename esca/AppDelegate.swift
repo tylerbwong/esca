@@ -17,6 +17,7 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    var currentDeal: Deal?
     
     let locationManager = CLLocationManager()
     
@@ -27,17 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let initialViewController:UIViewController;
         
         locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
-        
-        let center = UNUserNotificationCenter.current()
-        
-        center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
-            if granted {
-                print("Yay!")
-            } else {
-                print("wah")
-            }
-        }
         
         FIRApp.configure()
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -89,6 +79,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKAppEvents.activateApp()
     }
     
+    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let detailViewController = storyboard.instantiateViewController(withIdentifier: "DealDetail") as! DealDetailViewController
+        detailViewController.deal = currentDeal
+        
+        let initialViewController = UINavigationController(rootViewController: detailViewController)
+        
+        self.window?.rootViewController = initialViewController
+        
+    }
+    
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
@@ -102,23 +104,27 @@ extension AppDelegate: CLLocationManagerDelegate {
     }
     
     func handleEvent(forRegion region: CLRegion!) {
-        print("Geofence triggered! \(region.identifier)")
         let notificaiton = UNMutableNotificationContent()
-        notificaiton.title = region.identifier
-        notificaiton.body = "Yay, you got a notification becuase you entered a geofence!"
-        notificaiton.sound = UNNotificationSound.default()
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
-        
-        let identifier = "TestNotification"
-        let request = UNNotificationRequest(identifier: identifier, content: notificaiton, trigger: trigger)
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: { (error) in
-            if error != nil {
-                print(error.debugDescription)
-            }
+        let dealRef:FIRDatabaseReference = FIRDatabase.database().reference().child("deals").child(region.identifier)
+        dealRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            let deal = Deal.toDeal(from: snapshot)
+            self.currentDeal = deal
+            notificaiton.title = "Deal nearby! \(deal.name!)"
+            notificaiton.body = deal.description
+            notificaiton.sound = UNNotificationSound.default()
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+            
+            let identifier = region.identifier
+            let request = UNNotificationRequest(identifier: identifier, content: notificaiton, trigger: trigger)
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: { (error) in
+                if error != nil {
+                    print(error.debugDescription)
+                }
+            })
+            
+            self.locationManager.stopMonitoring(for: region)
         })
-        
-        locationManager.stopMonitoring(for: region)
     }
     
 }

@@ -11,6 +11,7 @@ import MapKit
 import Kingfisher
 import FontAwesome_swift
 import FirebaseDatabase
+import UserNotifications
 
 class DealDetailViewController: UIViewController {
     @IBOutlet weak var dealImageView: UIImageView!
@@ -30,6 +31,7 @@ class DealDetailViewController: UIViewController {
     }
     
     let defaults = UserDefaults.standard
+    let locationManager = CLLocationManager()
     
     var deal:Deal?
     
@@ -79,20 +81,6 @@ class DealDetailViewController: UIViewController {
         
         if let deal = self.deal {
             dealImageView.kf.setImage(with: URL(string: deal.photoUrl!))
-//            dealTitleLabel.text = deal.name
-//            self.title = deal.name
-//            authorLabel.text = "by \(deal.username!)"
-//            
-//            if deal.percentage != "nan%" {
-//                percentLabel.text = deal.percentage;
-//            }
-//            else {
-//                percentLabel.text = "0%"
-//            }
-//            
-//            descriptionLabel.text = deal.description
-//            addressLabel.text = "\(deal.location.name!)\n\(deal.location.address!)"
-//            feedbackButton.setTitle("Feedback (\(deal.feedbackCount!))", for: .normal)
         }
     }
     
@@ -101,14 +89,42 @@ class DealDetailViewController: UIViewController {
     }
     
     func markFavorite() {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+        }
+        
+        let dealLocation = deal?.location
         if defaults.object(forKey: (deal?.key)!) != nil {
             defaults.removeObject(forKey: (deal?.key)!)
             navigationItem.rightBarButtonItem?.title = String.fontAwesomeIcon(name: .starO)
+            stopMonitoring(coordinate: CLLocationCoordinate2D(latitude: (dealLocation?.latitude)!, longitude: (dealLocation?.longitude)!), radius: 1000, identifier: (deal?.key)!)
         }
         else {
             defaults.set(nil, forKey: (deal?.key)!)
             navigationItem.rightBarButtonItem?.title = String.fontAwesomeIcon(name: .star)
+            startMonitoring(coordinate: CLLocationCoordinate2D(latitude: (dealLocation?.latitude)!, longitude: (dealLocation?.longitude)!), radius: 1000, identifier: (deal?.key)!)
         }
+    }
+    
+    func startMonitoring(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance, identifier: String) {
+        if !CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
+            print("Error: Geofencing is not supported on this device!")
+            return
+        }
+        if CLLocationManager.authorizationStatus() != .authorizedAlways {
+            print("Warning: Your geotification is saved but will only be activated once you grant Geotify permission to access the device location.")
+        }
+        let region = CLCircularRegion(center: coordinate, radius: radius, identifier: identifier)
+        region.notifyOnEntry = true
+        region.notifyOnExit = false
+        locationManager.startMonitoring(for: region)
+    }
+    
+    func stopMonitoring(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance, identifier: String) {
+        let region = CLCircularRegion(center: coordinate, radius: radius, identifier: identifier)
+        region.notifyOnEntry = true
+        region.notifyOnExit = false
+        locationManager.stopMonitoring(for: region)
     }
     
     // MARK: - Segue

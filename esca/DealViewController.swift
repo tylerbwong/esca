@@ -10,14 +10,12 @@ import UIKit
 import MapKit
 import Kingfisher
 import FirebaseDatabase
-import CoreLocation
 
 class DealViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var dealTableView: UITableView!
     
-    let locationManager = CLLocationManager()
     let defaults = UserDefaults.standard
     
     var dealsRef: FIRDatabaseReference = FIRDatabase.database().reference().child("deals")
@@ -27,9 +25,6 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
-        self.locationManager.startUpdatingLocation()
         
         dealsRef.observe(.childAdded, with: {(snapshot) in
             let tempDeal = Deal.toDeal(from: snapshot)
@@ -52,9 +47,6 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             self.dealTableView.reloadData()
         })
-        
-        // Implemented Geofencing! Use LocationTest.gpx when mocking location (close app when preforming test)
-        startMonitoring(coordinate: CLLocationCoordinate2D(latitude: 37.331695, longitude: -122.0322801), radius: 1000, identifier: "There's a new deal nearby")
     }
     
     func indexOfDeal(snapshot: FIRDataSnapshot) -> Int {
@@ -104,28 +96,6 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func startMonitoring(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance, identifier: String) {
-        if !CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
-            print("Error: Geofencing is not supported on this device!")
-            return
-        }
-        if CLLocationManager.authorizationStatus() != .authorizedAlways {
-            print("Warning: Your geotification is saved but will only be activated once you grant Geotify permission to access the device location.")
-        }
-        let region = CLCircularRegion(center: coordinate, radius: radius, identifier: identifier)
-        region.notifyOnEntry = true
-        region.notifyOnExit = !region.notifyOnEntry
-        locationManager.startMonitoring(for: region)
-    }
-    
-    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
-        print("Monitoring failed for region with identifier: \(region!.identifier)")
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Location Manager failed with the following error: \(error)")
     }
     
     
@@ -190,21 +160,4 @@ class DealViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell!
         
     }
-}
-
-// MARK: - CLLocationManagerDelegate
-extension DealViewController: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let mostRecentLocation = locations.last else {
-            return
-        }
-        
-        if UIApplication.shared.applicationState == .active {
-            print("The app is updating", mostRecentLocation)
-        } else {
-            print("App is backgrounded. New location is %@", mostRecentLocation)
-        }
-    }
-    
 }
