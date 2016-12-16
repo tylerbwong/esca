@@ -10,9 +10,9 @@
 		154ED8CF1DDFC9C600B9A71B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ED8CE1DDFC9C600B9A71B /* User.swift */; };
 		154ED8D11DDFCEB300B9A71B /* Deal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ED8D01DDFCEB300B9A71B /* Deal.swift */; };
 		154ED8D31DDFCFBB00B9A71B /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ED8D21DDFCFBB00B9A71B /* Feedback.swift */; };
-		154ED8D51DDFD03700B9A71B /* ActivityEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154ED8D41DDFD03700B9A71B /* ActivityEntry.swift */; };
 		156096BB1DF620000015681D /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156096BA1DF620000015681D /* GameKit.framework */; };
 		1566D1A11E034D4C00C607CE /* FeedbackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1566D1A01E034D4C00C607CE /* FeedbackCell.swift */; };
+		1566D1A31E036FD200C607CE /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1566D1A21E036FD200C607CE /* Activity.swift */; };
 		156FE85D1DC5558200E75CF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156FE85C1DC5558200E75CF8 /* AppDelegate.swift */; };
 		156FE85F1DC5558200E75CF8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156FE85E1DC5558200E75CF8 /* LoginViewController.swift */; };
 		156FE8621DC5558200E75CF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 156FE8601DC5558200E75CF8 /* Main.storyboard */; };
@@ -42,9 +42,9 @@
 		154ED8CE1DDFC9C600B9A71B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		154ED8D01DDFCEB300B9A71B /* Deal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deal.swift; sourceTree = "<group>"; };
 		154ED8D21DDFCFBB00B9A71B /* Feedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
-		154ED8D41DDFD03700B9A71B /* ActivityEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityEntry.swift; sourceTree = "<group>"; };
 		156096BA1DF620000015681D /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		1566D1A01E034D4C00C607CE /* FeedbackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackCell.swift; sourceTree = "<group>"; };
+		1566D1A21E036FD200C607CE /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		156FE8591DC5558100E75CF8 /* esca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = esca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		156FE85C1DC5558200E75CF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		156FE85E1DC5558200E75CF8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -123,7 +123,6 @@
 				154ED8CE1DDFC9C600B9A71B /* User.swift */,
 				154ED8D01DDFCEB300B9A71B /* Deal.swift */,
 				154ED8D21DDFCFBB00B9A71B /* Feedback.swift */,
-				154ED8D41DDFD03700B9A71B /* ActivityEntry.swift */,
 				15FA2AE61DE445EF00FF5590 /* DealViewController.swift */,
 				15C6153C1DE4FAB200CFF3F0 /* DealCell.swift */,
 				15ED2AA61DE51B4900A7A018 /* SideMenuViewController.swift */,
@@ -139,6 +138,7 @@
 				15F1EC961DFC92B100B5EBDF /* DealDetailViewController.swift */,
 				15D610E51E023E6400530130 /* FeedbackViewController.swift */,
 				1566D1A01E034D4C00C607CE /* FeedbackCell.swift */,
+				1566D1A21E036FD200C607CE /* Activity.swift */,
 			);
 			path = esca;
 			sourceTree = "<group>";
@@ -303,7 +303,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				709812C21DF66DA000F82CC1 /* DealAnnotation.swift in Sources */,
-				154ED8D51DDFD03700B9A71B /* ActivityEntry.swift in Sources */,
 				E3A702351DF4003800A26C9D /* AddDealTableViewController.swift in Sources */,
 				154ED8CF1DDFC9C600B9A71B /* User.swift in Sources */,
 				154ED8D31DDFCFBB00B9A71B /* Feedback.swift in Sources */,
@@ -312,6 +311,7 @@
 				15D610E61E023E6400530130 /* FeedbackViewController.swift in Sources */,
 				156FE85F1DC5558200E75CF8 /* LoginViewController.swift in Sources */,
 				70CA45611DF4CC4F0099F097 /* MapViewController.swift in Sources */,
+				1566D1A31E036FD200C607CE /* Activity.swift in Sources */,
 				15C6153D1DE4FAB200CFF3F0 /* DealCell.swift in Sources */,
 				709812C01DF66D3900F82CC1 /* DealAnnotationView.swift in Sources */,
 				1566D1A11E034D4C00C607CE /* FeedbackCell.swift in Sources */,

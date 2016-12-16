@@ -30,6 +30,7 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
     let mainQueue = OperationQueue.main
     
     let dealsRef:FIRDatabaseReference = FIRDatabase.database().reference().child("deals")
+    let activityRef:FIRDatabaseReference = FIRDatabase.database().reference().child("activity")
     let storageRef:FIRStorageReference = FIRStorage.storage().reference()
     
     var location: Location?
@@ -50,6 +51,7 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
     
     func addDeal() {
         let newDeal:FIRDatabaseReference = dealsRef.childByAutoId()
+        let newActivity:FIRDatabaseReference = activityRef.childByAutoId()
         let metaData:FIRStorageMetadata = FIRStorageMetadata()
         
         let newImage:FIRStorageReference = storageRef.child("deals").child("\(newDeal.key).jpg")
@@ -60,20 +62,26 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
                 newImage.put(uploadData, metadata: metaData) {(metaData, error) in
                     let photoUrl = metaData!.downloadURL()!.absoluteString
                     
+                    let date = Date()
                     let formatter = DateFormatter()
                     formatter.dateFormat = "MM/d/YY"
                     var startDate: String = ""
                     var endDate: String = ""
+                    let dateString = formatter.string(from: date)
                     
                     if self.dateSwitch.isOn {
                         startDate = formatter.string(from: self.startDatePicker.date)
                         endDate = formatter.string(from: self.endDatePicker.date)
                     }
                     else {
-                        let date = Date()
                         startDate = formatter.string(from: date)
                         endDate = "never"
                     }
+                    
+                    formatter.dateFormat = "h:mm a"
+                    formatter.amSymbol = "AM"
+                    formatter.pmSymbol = "PM"
+                    let time = formatter.string(from: date)
                     
                     newDeal.setValue(["name": self.dealTitleField.text!,
                                       "description": self.additionalInfoField.text!,
@@ -88,6 +96,11 @@ class AddDealTableViewController: UITableViewController, UIImagePickerController
                                       "feedbackCount": 0,
                                       "username": auth.currentUser!.displayName!,
                                       "photoUrl": photoUrl])
+                    newActivity.setValue(["action": Action.add.description,
+                                          "dealKey": newDeal.key,
+                                          "username": auth.currentUser!.displayName!,
+                                          "date": dateString,
+                                          "time": time])
                     
                 }
                 self.mainQueue.addOperation {
