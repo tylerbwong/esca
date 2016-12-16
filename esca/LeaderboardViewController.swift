@@ -26,6 +26,9 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Menu", style: UIBarButtonItemStyle.plain, target: self, action: #selector(LeaderboardViewController.showMenu))
+        
         // Do any additional setup after loading the view, typically from a nib.
         dealsRef.observe(.childAdded, with: {(snapshot) in
             let scoreDict = snapshot.value as! [String : AnyObject]
@@ -44,6 +47,9 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
         
     }
     
+    func showMenu() {
+        self.performSegue(withIdentifier: "LeaderboardOpenMenu", sender: self)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

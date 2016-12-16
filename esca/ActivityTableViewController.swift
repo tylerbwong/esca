@@ -20,6 +20,7 @@ class ActivityTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Activity"
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Menu", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ActivityTableViewController.showMenu))
 
         activityRef.observe(.childAdded, with: { (snapshot) in
             let tempActivity = Activity.toActivity(from: snapshot)
@@ -27,6 +28,10 @@ class ActivityTableViewController: UITableViewController {
             self.activities.insert(tempActivity, at: 0)
             self.tableView.reloadData()
         })
+    }
+    
+    func showMenu() {
+        self.performSegue(withIdentifier: "ActivityOpenMenu", sender: self)
     }
 
     override func didReceiveMemoryWarning() {
