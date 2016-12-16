@@ -43,7 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         if FIRAuth.auth()?.currentUser != nil {
-            initialViewController = storyboard.instantiateViewController(withIdentifier: "NavController")
+            let mainViewController = storyboard.instantiateViewController(withIdentifier: "DealViewController")
+            initialViewController = UINavigationController(rootViewController: mainViewController)
         }
         else {
             initialViewController = storyboard.instantiateViewController(withIdentifier: "Login")

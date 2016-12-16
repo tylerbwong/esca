@@ -33,14 +33,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Segues
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "NavController" {
-            print("yay")
-        }
-    }
-    
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error?) {
         if let error = error {
             print(error.localizedDescription)
@@ -62,8 +54,9 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func goToMain() {
-        let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "NavController") as! UINavigationController
-        self.present(mainViewController, animated: true, completion: nil)
+        let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "DealViewController")
+        let navViewController = UINavigationController(rootViewController: mainViewController!)
+        self.present(navViewController, animated: true, completion: nil)
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
