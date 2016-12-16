@@ -29,6 +29,8 @@
 		709812BE1DF66D2000F82CC1 /* DealAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 709812BD1DF66D2000F82CC1 /* DealAnnotationView.xib */; };
 		709812C01DF66D3900F82CC1 /* DealAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709812BF1DF66D3900F82CC1 /* DealAnnotationView.swift */; };
 		709812C21DF66DA000F82CC1 /* DealAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709812C11DF66DA000F82CC1 /* DealAnnotation.swift */; };
+		70C3B9C61E036B8E0014C3F7 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C3B9C51E036B8E0014C3F7 /* AnnotationView.swift */; };
+		70C3B9CA1E0376700014C3F7 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 70C3B9C91E0376700014C3F7 /* icon.png */; };
 		70CA45611DF4CC4F0099F097 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CA45601DF4CC4F0099F097 /* MapViewController.swift */; };
 		70CA45631DF4CD660099F097 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70CA45621DF4CD660099F097 /* MapKit.framework */; };
 		70CA45651DF4CD850099F097 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70CA45641DF4CD850099F097 /* CoreLocation.framework */; };
@@ -65,6 +67,8 @@
 		709812BD1DF66D2000F82CC1 /* DealAnnotationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealAnnotationView.xib; sourceTree = "<group>"; };
 		709812BF1DF66D3900F82CC1 /* DealAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealAnnotationView.swift; sourceTree = "<group>"; };
 		709812C11DF66DA000F82CC1 /* DealAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DealAnnotation.swift; sourceTree = "<group>"; };
+		70C3B9C51E036B8E0014C3F7 /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
+		70C3B9C91E0376700014C3F7 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		70CA45601DF4CC4F0099F097 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		70CA45621DF4CD660099F097 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		70CA45641DF4CD850099F097 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -125,10 +129,12 @@
 				154ED8D21DDFCFBB00B9A71B /* Feedback.swift */,
 				154ED8D41DDFD03700B9A71B /* ActivityEntry.swift */,
 				15FA2AE61DE445EF00FF5590 /* DealViewController.swift */,
+				70C3B9C51E036B8E0014C3F7 /* AnnotationView.swift */,
 				15C6153C1DE4FAB200CFF3F0 /* DealCell.swift */,
 				15ED2AA61DE51B4900A7A018 /* SideMenuViewController.swift */,
 				E3A702341DF4003800A26C9D /* AddDealTableViewController.swift */,
 				70CA45601DF4CC4F0099F097 /* MapViewController.swift */,
+				70C3B9C91E0376700014C3F7 /* icon.png */,
 				709812BD1DF66D2000F82CC1 /* DealAnnotationView.xib */,
 				709812C11DF66DA000F82CC1 /* DealAnnotation.swift */,
 				709812BF1DF66D3900F82CC1 /* DealAnnotationView.swift */,
@@ -240,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				156FE8671DC5558200E75CF8 /* LaunchScreen.storyboard in Resources */,
+				70C3B9CA1E0376700014C3F7 /* icon.png in Resources */,
 				709812BE1DF66D2000F82CC1 /* DealAnnotationView.xib in Resources */,
 				15E928521DDAD5570088585F /* GoogleService-Info.plist in Resources */,
 				156FE8641DC5558200E75CF8 /* Assets.xcassets in Resources */,
@@ -319,6 +326,7 @@
 				156FE85D1DC5558200E75CF8 /* AppDelegate.swift in Sources */,
 				15ED2AA71DE51B4900A7A018 /* SideMenuViewController.swift in Sources */,
 				159CCF951DF545770074A032 /* Location.swift in Sources */,
+				70C3B9C61E036B8E0014C3F7 /* AnnotationView.swift in Sources */,
 				E322A0671DF5F2DA00081FCD /* RestaurantSearchTableViewController.swift in Sources */,
 				15FA2AE71DE445EF00FF5590 /* DealViewController.swift in Sources */,
 			);

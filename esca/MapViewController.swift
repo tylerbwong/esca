@@ -76,6 +76,19 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         return -1
     }
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if annotation is MKUserLocation
+        {
+            return nil
+        }
+        var annotationView = self.map.dequeueReusableAnnotationView(withIdentifier: "Pin")
+        annotationView = AnnotationView(annotation: annotation, reuseIdentifier: "Pin")
+        annotationView?.canShowCallout = false
+        annotationView?.image = UIImage(named: "icon.png")
+        return annotationView
+    }
+    
     func mapView(_ mapView: MKMapView,
                  didSelect view: MKAnnotationView)
     {
@@ -101,11 +114,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         // 3
         calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.52)
         view.addSubview(calloutView)
-        map.setCenter((view.annotation?.coordinate)!, animated: true)
+       // map.setCenter((view.annotation?.coordinate)!, animated: true)
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        if view.isKind(of: DealAnnotationView.self)
+        if view.isKind(of: AnnotationView.self)
+        //    if view.isKind(of: DealAnnotationView.self)
         {
             for subview in view.subviews
             {
