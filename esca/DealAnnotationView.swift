@@ -14,6 +14,15 @@ class DealAnnotationView: UIView {
     @IBOutlet weak var DealLabel: UILabel!
     @IBOutlet weak var DescLabel: UILabel!
     @IBOutlet weak var RestImage: UIImageView!
+    
+    var deal: Deal!
+    
+//    init(_ deal:Deal){
+//        super.init(frame: );
+//        self.deal = deal
+//     
+//    }
+
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

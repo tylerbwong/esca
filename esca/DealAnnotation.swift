@@ -16,6 +16,7 @@ class DealAnnotation: NSObject, MKAnnotation {
     var dealDescription: String!
     var restaurant: String!
     var image: String!
+    var dealObj: Deal!
     
     
     
