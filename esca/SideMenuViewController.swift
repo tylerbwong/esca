@@ -40,7 +40,7 @@ class SideMenuViewController: UITableViewController {
     //   }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 5 {
+        if indexPath.row == 4 {
             FBSDKLoginManager().logOut()
             try! FIRAuth.auth()!.signOut()
             goToLogin()
@@ -58,8 +58,6 @@ class SideMenuViewController: UITableViewController {
                         viewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "MapViewController")
                     case 3:
                         viewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "ActivityTableViewController")
-                    case 4:
-                        viewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "DealViewController")
                     default: break
                 }
                 let nav = UINavigationController(rootViewController: viewController!)

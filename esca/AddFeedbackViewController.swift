@@ -10,9 +10,9 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class AddFeedbackViewController: UIViewController {
+class AddFeedbackViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var feedbackTypeButton: UIButton!
-    @IBOutlet weak var feedbackField: UITextField!
+    @IBOutlet weak var feedbackField: UITextView!
     
     var positiveFeedback = true
     var dealKey: String?
@@ -35,6 +35,14 @@ class AddFeedbackViewController: UIViewController {
     @IBAction func onClickTypeButton(_ sender: UIButton) {
         positiveFeedback = !positiveFeedback
         updateFeedbackType()
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        feedbackField.text = nil
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        feedbackField.text = "Feedback (Optional)"
     }
     
     func updateFeedbackType() {

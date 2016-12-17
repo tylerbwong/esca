@@ -35,11 +35,13 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
             if let deals = scoreDict["deals"] as? Int {
                 let submittedScore: LeaderBoard = LeaderBoard(name: name, score: deals)
                 self.submittedArr.append(submittedScore)
+                self.submittedArr = self.submittedArr.sorted(by: { $0.score! > $1.score! })
             }
             
             if let feedback = scoreDict["feedback"] as? Int {
                 let feedbackScore: LeaderBoard = LeaderBoard(name: name, score: feedback)
                 self.feedbackArr.append(feedbackScore)
+                self.feedbackArr = self.feedbackArr.sorted(by: { $0.score! > $1.score! })
             }
             
             self.leaderBoardTable.reloadData()
