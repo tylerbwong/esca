@@ -1,8 +1,0 @@
-language: objective-c
-cache: cocoapods
-osx_image: xcode8.2
-xcode_project: esca.xcworkspace
-xcode_scheme: esca
-before_install:
-   - pod install
-
